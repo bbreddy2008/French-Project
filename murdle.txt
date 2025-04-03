@@ -1,0 +1,351 @@
+Puzzle #,Qui ?,Quoi ? ,Où ?,Pourquoi ?,
+1,la fabuleuse Aureolin,un grand cierge,l'immense salle de bains,
+Midnight III,un tuyau en aluminium,la chambre,
+Dame Obsidian,une fourchette,la salle de projection,
+2,le père Mango,un harpon,les docks,
+Signor Emerald,une brique ordinaire,les anciennes ruines,
+Miss Saffron,un piège à ours,les falaises,
+3,la capitaine Slate,un verre de vin empoisonné,le hall d'entrée,
+l'Évêque Azure,une statue abstraite,le toit,
+Maître Blackstone,un vase rare,un atelier d'art,
+4,la cheffe Aubergine,un couteau italien d'importation,le wagon de queue,
+la vice-présidente Mauve,une valise,la locomotive,
+le philosophe Bone,un journal roulé (avec un pied-de-biche à l'intérieur),le toit,
+5,l'officière Copper,un falcon d'acide,le parking,
+Docteur Crimson,un microscope,le toit,
+Sœur Lapis,un scalpel chirurgical,la boutique de souvenirs,
+6,le caporal Coffee,des cordes de piano,la benne à ordures,
+le spationaute Bluski,un pied-de-biche,la clôture métallique,
+Midnight III,une fléchette empoisonnée,le graffiti distrayant,
+7,le comte Grey,une pelote de laine,le manoir,
+la diacre Verdigris,une paire de sécateurs,la chapelle,
+Dame Obsidian,une bouteille de cyanure,les anciennes ruines,
+8,Sir Rulean,une horloge antique,le grenier sinistre,
+Dame Obsidian,une loupe,la chambre principale,
+Miss Saffron,une hache,le terrain,
+9,Miss Saffron,du thé empoisonné,la tour de guet,
+Lord Lavender,un pot de fleurs,la fontaine,
+la gendarme copper,une paire de sécateurs,les anciennes ruines,
+10,la grand maître Rose,une boule de cristal,le comptoir,
+le camarade Champagne,une bouteile de vin,la banquette isolée,
+le frère Brownstone,un tire-bouchon,les toilettes exiguës,
+11,le coach Raspberry,une paille en métal,la terrasse,
+le caporal Coffee,une brique ordinaire,la salle des grains de café,
+le romancier Gainsboro,une tasse de café empoisonné,le comptoir,
+12,le camarade Champagne,un coupe-papier en os,le présentoir à promotions,
+la capitaine Slate,un sac cabas,le comptoir d'accueil,
+le réalisateur Dusty,un livre broché,la pièce des livres rares,
+13,la magistrate Pine,de la gnôle contaminée,l'«Hôtel»,
+la cow-boy Raspberry,un cactus,le puits,
+le caporal Coffee,un poignard,le saloon,
+14,le vicomte Éminence,un sceptre serti de joyaux,un café,
+le comte Grey,la peste,un manoir potentiellement hanté,
+le baron Maroon,un couteau,l'institut d'investigation,
+15,Barbe-Noire,un canon,la baie des pirates,
+Barbe-Bleue,un cimeterre,le grand tourbillon,
+Sans Barbe,une fausse carte au trésor,le bateau de pirate,
+16,l'assistante Applegreen,une gigantesque pile de livres,le meilleur bureau,
+l'éditrice Ivory,une antique machine à écrire,le balcon,
+l'agent Ink,une rame de papier,la salle des candidatures spontanées,
+17,le romancier Gainsboro,un bébé requin,le pont,
+le président Chalk,un stylo en or,la salle des machines,
+l'agent Ink,une ancre antique,la salle de dîner,
+18,le philosophe Bone,un gros livre (bien lourd),les coulisses,
+Déductive Logico,le bookie,la table des nominés,
+Silverton la légende,un stylo-plume,la scène,
+19,la secrétaire Celadon,un ordinateur portable,la République de Drakonia,
+la directrice Tuscany,une bougie empoisonnée,Hollywood,
+la vice-présidente Mauve,un sextant,Tektopia,
+20,le spationaute Blauski,un diplôme de l'université de Déduction,la salle d'attente,
+Docteur Crimson,des gants en cuir,le bureau principal,
+le caporal Coffee,une loupe,le placard,
+21,dame Obsidian,une barre de fer,une tour pétrolière,
+Midnight III,un pied-de-biche,les bureaux,
+le président Chalk,un baril de pétrole,les anciennes ruines,
+22,Maître Blackstone,un buste en marbre,le bureau d'un associé,
+la vice-présidente Mauve,des contrats déroutants,le bureau d'un collaborateur,
+dame Obsidian,un encrier empoisonné,le hall d'entrée,
+23,le coach Raspberry,la balance de la justice,la chambre du juge,
+l'officière Copper,un tampon de notaire,le parking,
+le père Mango,une énorme pile de documents administratifs,la salle de tribunal,
+24,la juge Pine,un drapeau,le banc du juge,
+l'officière Copper,un marteau,les bancs publics,
+dame Obsidian,une matraque,le banc des jurés,
+25,la fabuleuse Aureolin,une corde faite en vêtements de créateur,le parking,
+la secrétaire Celadon,un avocat à un quart de million de dollars,le jacuzzi,
+Miss Saffron,une paire de menottes en or,une cellule privée,
+26,le caporal Coffee,un gros colis,un camion postal,
+le maire Honey,un timbreur de timbres,la longue file d'attente,
+Docteur Crimson,un coupe-papier,le centre de tri,
+27,le coach Raspberry,une dague rituelle,les anciennes ruines,
+l'officière Copper,une pelle,le rocher en forme de crâne,
+la grand maître Rose,une araignée venimeuse,l'unique route,
+28,la cheffe Aubergine,de l'huille très allergène,le minigolf,
+l'herboriste Onyx,une baguette de sourcier,l'observatoire,
+le cryptozoologue Cloud,une machine à mouvement quasi perpétuel,un labyrinthe végétale impossible,
+29,le philologue Flint,une baguette en gypse,la salle de bal,
+la sociologue Umber,une dague maudite,un grenier obscur,
+le numérologue Night,un pin's distinctif,l'entrée principale,
+30,l'herboriste Onyx,un dispositif pseudoscientifique,l'échelle de la bibliothèque,
+le numérologue Night,un jeu de tarot,le canapé,
+le haut alchimiste Raven,une montre à gousset hypnotique,le bureau,
+31,Lady Violet,un balai,la forêt dense,
+la vice-présidente Mauve,une bûche,les anciennes ruines,
+la duchesse de Vermillon,un chaudron,le feu central,
+32,la vice-présidente Mauve,un aimant géant,le toit,
+le principal Applegreen,un cerveau dans un bocal,un levier géant,
+la capitaine Slate,une louche,la table d'opération,
+33,l'Évêque Azure,un bras de squelette,la grande entrée,
+l'inspecteur Irratino,un crâne en cristal,la chambre sacrée,
+la directrice Tuscany,une dague rituelle,le haut autel,
+34,le vicomte Éminence,un flacon de poison mortel,l'énorme mausolée,
+Sir Rulean,un bras de squelette,le columbarium,
+Frère Brownstone,un chapelet,la boutique de souvenirs,
+35,le numérologue Night,une louche,les anciennes ruines,
+le philologue Flint,une baguette en gypse,la bibliothèque,
+l'assistante Applegreen,un dispositif pseudoscientifique,les baraquements,
+36,la capitaine Slate,une fusée de détresse,la soute à cargaison,
+l'amiral Navy,un cordage,les quartiers du capitaine,
+Tangerine,du rhum empoisonné,par-dessus bord,
+37,le maire Honey,une vieille épée,une boutique de seconde main,
+le père Mango,une hache,un restaurant de chaîne,
+l'officière Copper,une loupe,un garage de voitures d'occasion,
+38,l'astrologue Azure,une dague en cristal,la gigantesque chambre,
+le duc de Vermillon,une planche Ouija,le garage aux cinquante voitures,
+Frère Brownstone,un lourd livre de codes,le terrain,
+39,Lady Violet,un muffin empoisonné,la salle de bal,
+Miss Saffron,un sac à linge rempli de couteaux,la chaufferie,
+Lord Lavender,un stylo en or,l'entrée principale,
+40,Signor Emerald,un globe,la salle de l'horloge,
+le duc de Vermillon,un ordinateur portable,la salle du fond,
+le vicomte Éminence,des gants en cuir,la chambre forte,
+41,Docteur Crimson,une baguette de sourcier,le toit,
+la fabuleuse Aureolin,une machine à mouvement quasi perpétuel,le terrain,
+la duchesse de Vermillon,une boule de cristal,le caisson d'isolation,
+42,le caporal Coffee,une marmite bouillante,la terrasse,
+Grand Maître Rose,une paille de métal,les toilettes,
+Sœur Lapis,un couteau à beurre,le parking,
+43,la duchesse de Vermillon,un chocolat chaud empoisonné,le terrain en friche gelé,
+la directrice Tuscany,un piolet,la salle de ping-pong,
+Tangerine,un pic en glace,les baraquements,
+44,la juge Pine,une épée de scène,les bois d'arrière-scène,
+Sœur Lapis,du pop-corn empoisonné,l'arbre d'acceuil,
+le comte Grey,un programme toxique,la scène,
+45,l'éditrice Ivory,une pelle,le stand,
+le superfan Smoky,une roue de secours,l'écran,
+Silverton la légende,du pop-corn empoisonné,la billeterie,
+46,le principal Applegreen,un poisson-globe toxique,le pont,
+la vice-présidente Mauve,un harpon,la salle de dîner,
+l'amiral Navy,le gouvernail,les quartiers du capitaine,
+47,le baron Maroon,une vieille épée,les bois morts,
+Tangerine,un poisson-globe toxique périmé,le phare sur la falaise,
+l'astrologue Azure,une pelle,l'église en ruines,
+48,Sœur Lapis,une sainte relique,les sièges inondés,
+Frère Brownstone,un chapelet,l'orgue envahi,
+le philosophe Bone,une pierre,l'autel fissuré,
+49,Sir Rulean,une bougie prière,l'arbre tortueux,
+la directrice Tuscany,un singe dressé,les anciennes ruines,
+le comte Grey,une pierre,la grotte mouvante,
+50,Sir Rulean,une pierre,le feu du phare,
+Baroon Maroon,une bouteille d'huile,une crique isolée,
+Sœur Lapis,une corde de marin,le générateur,
+51,le comte Grey,un chaudron,l'énorme mausolée,pour voler la victime,
+l'astrologue Azure,un détecteur de fantômes,la boutique de souvenirs,pour voir si c'était possible,
+Tangerine,un balai,la cabane étrange,pour dissimuler une aventure,
+le cryptozoologue Cloud,un bras de squelette,la grille d'entrée,pour voler un corps
+52,le philologue Flint,une montre à gousset hypnotique,un impossible labyrinthe végétale,pour hériter d'une fortune,
+le haut alchimiste Raven,une baguette de sourcier,la grande tour,pour prouver sa force,
+l'herboriste Onyx,une machine à mouvement quasi perpétuel,le minigolf,pour se battre par amour,
+le numérologue Night,une boule de cristal,le grand château,parce qu'il ou elle pouvait
+53,la sociologue Umber,une vieille épée,la grotte mouvante,au nom de la révolution,
+le baron Maroon,une lourde bougie,l'arbre tortueux,pour voler un livre primé,
+la juge Pine,une bûche,les anciennes ruines,pour faire fuire un ours,
+le cryptozoologue Cloud,une hache,la petite colline,pour se venger
+54,l'amiral Navy,une hache,les falaises,pour impressionner une dame,
+la vice-présidente Mauve,une brique ordinaire,un bosquet hanté,pour voler une carte au trésor,
+l'agent Ink,une rame,les anciennes ruines,pour venger son père,
+la grand maître Rose,un piège à ours,les docks,par accès de folie
+55,le maire Honey,une araignée venimeuse,les anciennes ruines,pour une arnaque immobilière,
+le principal Applegreen,une paire de sécateurs,le spa des sources chaudes,pour voler la victime,
+le coach Raspberry,un arc et des flèches,le lac des fêtes,pour voir si c'était possible,
+la directrice Tuscany,un piolet,le portail d'entrée,pour fuire un maître chanteur
+56,le père Mango,une aiguille à tricoter,la chapelle,pour faire fuire un ours,
+Mister Shadow,un antique fusil à silex,les anciennes ruines,pour une arnaque immobilière,
+Lord Lavender,une pelote de laine,un nouveau développement,pour voler un corps,
+l'officière Copper,un flacon de cyanure,le jardin pittoresque,pour voler une idée
+57,Frère Brownstone,une pelote de laine,la tribune de la chorale,pour des raisons religieuses,
+l'Évêque Azure,une bouteille de vin,le parvis,parce qu'un fantôme l'y a poussé,
+la diacre Verdigris,une sainte relique,le cimetière,pour s'entraîner,
+le père Mango,un fusil à silex antique,le vestibule,parce qu'il ou elle était en train de dévenir comme ses parents
+58,le baron Maroon,un pot de fleurs,le jardin secret,pour protéger un secret,
+Lord Lavender,une paire de sécateurs,les anciennes ruines,pour voler un livre primé,
+la duchesse de Vermillon,une brique ordinaire,la fontaine,pour voir ce que ça fait de tuer,
+le vicomte Éminence,du thé empoisonné,la tour de guet,pour faire une expérience scientifique
+59,le président Chalk,un stylo commémoratif,la salle de dîner,pour faire grimper les ventes d'un livre,
+le romancier Gainsboro,des contrats douteux,le pont,pour voler un livre primé,
+l'éditrice Ivory,un sac cabas,par-dessus bord,pour réconforter Logico,
+l'agent Ink,une ancre antique,la salle des machines,au nom d'un culte
+60,Tangerine,une vieille épée,les anciennes ruines,sur ordre de la secte,
+le camarade Champagne,une horloge antique,le vieux moulin,pour donner une leçon,
+l'assistante Applegreen,une loupe,la maison commune,pour motiver Logico,
+le principal Applegreen,un tuyau en aluminium,la bibliothèque,pour éviter un changement dans le testament
+61,le président Amaranth,un balai,une église en ruines,pour piller une tombe,
+Mister Shadow,une hache,le bateau de croisière échoué,pour sauver la face,
+la capitaine Slate,un crâne de cristal,les bois morts,pour sceller un accord commercial,
+Midnight III,un artefact « alien »,le phare sur la falaise,pour aider à gagner une guerre
+62,M. Ordinaire Blue-Sky,un tuyau en aluminium,une boutique de seconde main,pour protéger un secret,
+l'officière Copper,une ancre antique,un centre commercial décrépit,pour l'argent,
+l'ancien Maire Honey,une fourchette,la vieille usine,pour répondre à une insulte,
+Docteur Crimson,une brique ordinaire,un garage d'occasion,pendant une perte de connaissance
+63,la diacre Verdigris,un flacon d'huile consacrée,le jardin,pour venger son père,
+le père Mango,une bougie de prière,la bibliothèque interdite,pour prouver sa force,
+Sœur Lapis,du vin de messe,la chapelle,par accès de folie,
+Frère Brownstone,un chapelet,les falaises,pour des raisons religieuses
+64,la directrice Tuscany,un sac à dos chargé,la librairie,pour le bien commun,
+Mister Shadow,un cordon de remise de diplôme,l'ancient bâtiment,pour arrêter Logico,
+le doyen Glaucous,un crayon bien taillé,le state,pour prouver quelque chose,
+Miss Saffron,un crâne de cristal,le jardin botanique,pour faire diversion
+65,le doyen Glaucous,un vieil ordinateur,le bureau de la directrice,pour faire une expérience scientifique,
+le philosophe Bone,un buste en marbre,le toit,parce qu'il ou elle pouvait,
+l'éditrice Ivory,un ordinateur portable,la salle des profs,des fins politiques,
+le cryptozoologue Cloud,un gros livre,le parvis,pour impressionner une dame
+66,le président Amaranth,un sceptre sacré,la Seine,pour devenir roi,
+l'amiral Navy,une urne électorale,les barricades,pour arrêter la révolution,
+le vicomte Éminence,un flambeau,la bastille,pour le bien commun,
+le camarade Champagne,un traité politique,les anciennes ruines,au nom de la révolution
+67,le duc de Vermillon,Excalibur,Camelot,par défi,
+Lady Violet,un casque antique,les anciennes ruines,pour voler un corps,
+Lord Lavender,une bouteille de vin,Avalon,pour des raisons religieuses,
+Sir Rulean,le Graal,le lac enchanté,parce que c'était logique
+68,la capitaine Slate,un réservoir à oxygène,l'atterrisseur lunaire,par folie spatiale,
+le coach Raspberry,une grosse batterie,la sonde lunaire Rover,pour conduire une expérience scientifique,
+le spationaute Blauski,un crâne humain,la base lunaire,à des fins politiques,
+le caporal Coffee,une pierre lunaire,les anciennes ruines,pour se venger
+69,le haut alchimiste Raven,une scie,le parking,parce qu'un fantôme lui a forcé la main,
+Mister Shadow,l'as de pique,la table de close-up,pour protéger un secret de magie,
+la fabuleuse Aureolin,un lapin dressé très vicieux,la scène principale,parce que le code a été enfreint,
+le superfan Smoky,une bouteille d'alcool bon marché,la salle de piano,pour voler une idée
+70,Mister Shadow,une pelle,une benne à ordures,pour faire taire un témoin,
+Maître Blackstone,un cimeterre,une carcasse de voiture brûlée,par soif de sang,
+Babyface Blue,un hareng rouge,une clôture métallique,pour donner une bonne leçon,
+Silverton la légende,une fiole de poison,le graffiti perturbant,pour voler une idée
+71,le maire Honey,une baguette de sourcier,un site d'atterrissage d'ovnis,pour protéger un secret,
+le romancier Gainsboro,une baguette en gypse,la grande place,par jalousie,
+Oncle Midnight,une cuillère tordue,une boutique de cristaux,pendant une hallucination, mon pote,
+la déesse des cristaux,une bougie de prière,un restaurant kitsch,pour conduire une expérience scientifique
+72,Maître Blackstone,une boule de cristal,l'espace de méditation extérieur,pour l'argent,
+le numérologue Night,un jeu de tarot maudit,l'énorme coffre-fort,parce que les énergies n'étaient pas bonnes,
+le maître suprême Cobalt,une dague de cristal,le bar sur le toit,pour prouver son amour,
+Docteur Seashell, Dentiste,un texte de l'autre monde,la section de la sauge,pour voler un cristal
+73,la cheffe Aubergine,une cuillère,la cuisine,pour prouver quelque chose,
+le caporal Coffee,une fiole de poison,les toilettes,pour obtenir un meilleur siège,
+le coach Raspberry,un bibelot mural,les banquettes,pour animer une fête,
+le comte Grey,une huile très allergène,la terrasse avant,par jalousie
+74,une baguette en gypse,une baguette en gypse,un fourgon du gouvernement,pour conduire une expérience scientifique,
+la sociologue Umber,un chaudron,l'entrée de la grotte,parce que les énergies n'étaient pas bonnes,
+l'herboriste Onyx,un appareil pseudoscientifique,la boutique de souvenirs,sur ordre d'une secte,
+la secrétaire Celadon,une montre à gousset hypnotique,le cratère,pour voler un ovni
+75,Mister Shadow,un aimant géant,un cul-de-sac,pour promouvoir l'occulte,
+le maire Honey,un os géant,les nouvelles ruines,pour l'argent,
+Maître Blackstone,une pierre,une table,pour aider à gagner une guerre,
+Docteur Seashell, Dentiste,un globe,une grosse machine,pour promouvoir la ville
+76,Hack Blaxton,un Award,le Magic Palace,pour aider à vendre un script
+,la productrice exécutive Steel,une pelliculte de film,le grand parc,pour faire réaliser
+,Le superfan Smoky,un club de golf,l'agence artistique argyle,pour prouver sa force
+,Background Marengo,une seringue à Botox,le studio de tournage midnight,pour percer dans l'industrie
+77,la productrice exécutive Steel,une corde de piano,le grand hall,pour sceller un accord commercial
+,Argent Argyle,un vase rare,le balcon du toit,pour animer une soirée
+,Midnight III,une antique machine à écrire,le bar du sous-sol,pour finir son film
+,Oncle Midnight,un énorme scénario,la piscine de la cour,pour une belle somme d'argent liquide
+78,Boss Charcoal,un hareng rouge,la banquette du coin,pour prouver sa force
+,la secrétaire Celadon,un Award,le stand du voiturier,par frustration
+,la grand maître Rose,une assiette de luxe,le bar,pour hériter d'une fortune
+,Silverton la légende,des baguettes,la table à côté de la benne à ordure,pour faire diversion
+79,Le directeur Dusty,un Award,la cabine de projection,pour voler une idée
+,Hack Blaxton,une dague rituelle,le guichet,pour faire réaliser
+,Le superfan Smoky,une barre chocolatée périmée,le hall d'entrée,pour avoir un meilleur siège
+,Pearl, guilde américaine des éditeurs,du pop-corn empoisonné,la salle de projection,pour voir si c'était possible
+80,Oncle Midnight,une écharpe étrangleuse,l'appartement-terrasse,par jalousie
+,Boss Charcoal,une machine à érire antique,la chaufferie,pour s'entraîner
+,Docteur Crimson,un oiseau en or,la plus petite chambre,pour rejoindre une secte
+,la productrice exécutive Steel,un détecteur de fantômes,les jardins sur le toit,pour voir si c'était possible
+81,Silverton la légende,un pied-de-biche,le parking,pour voler un rôle
+,le président Midnight,une loupe,l'étage de la convention,pour obtenir une superséquence
+,Le directeur Dusty,une pipe explosive,la salle d'exposition,pour une grosse somme d'argent
+,la juge Pine,un livre de poche édition spéciale cinéma,l'espace de restauration,pour promouvoir un film
+82,la directrice Tuscany,une bûche,le vieux zoo,pour échapper à un chantage
+,Pearl,un extincteur,le théâtre grec,pour détruire la carrière d'un concurrent
+,Lord Lavender,un casque antique,les célèbres grottes,parce qu'il ou elle pouvait
+,Tangerine,une pierre,le panneau d'Hollywood,pour voler un rubis
+83,Signor Emerald,une voiturette de golf,le parking A,parce qu'il ou elle était pressé.e
+,Lord Lavender,un Award,le bâtiment de la sécurité,pour protéger un secret
+,l'officière Copper,un énorme scénario,le parking B,pour avoir une meilleure place
+,Pearl,une matraque,la fontaine,pour piller une tombe
+84,le superfan Smoky,un extincteur,le plateau d'extérieur,pour percer dans l'industrie
+,Sœur Lapis,un drapeau,la statue de Midnight I,pour rénégocier son contrat
+,l'officière Copper,une voiturette de golf,le bar & grill du Château d'eau,pour dissimuler une aventure
+,le coach Raspberry,un faux Award,l'accueil des visiteurs,pour rencontrer une célébrité
+85,l'actrice Abalone,un sac de sable,studio son D,pour se sortir d'un mauvais film
+,le président Midnight,un « faux couteau du cinéma »,studio son B,pour gagner un Award
+,Boss Charcoal,un support lumière,studio son C,pour voler un rôle
+,Midnight III,un câble électrique,studio son A,pour s'emparer de studio
+86,Docteur Crimson,un chapeau piégé,le balcon,par jalousie
+,le caporal Coffee,un hareng rouge,la salle d'attente,pour voir s'il ou elle pouvait le faire
+,la fabuleuse Aureolin,un extincteur,le bureau principal,pour gagner un Award
+,le cosmonaute Bluski,une fiole de poison,le placard,pour avoir plus de texte
+87,Background Marengo,une fausse rose,le bar,pour percer dans l'industrie
+,Midnight III,une bouteille de vin,la véranda,pour gagner un Award
+,Le directeur Dusty,un coffret DVD,le grill,pour s'emparer d'Hollywood
+,l'agent Argyle,une fourchette,les toilettes,pour sortir d'un mauvais film
+88,Dame Obsidian,une baguette de sourcier,le balcon,pour tenter un complot
+,le duc de Vermillon,une montre à gousset hypnotique,les quartiers des domestiques,pour promouvoir l'occulte
+,Frère Brownstone,une dague en cristal,le garage aux cinquante voitures,pour voler le terrain
+,l'astrologue Azure,de la teinture empoisonnée,le terrain,pour piller une tombe
+89,Lord Lavender,une voiturette de golf,le studio d'orchestration,pour sortir d'un mauvais film
+,l'actrice Abalone,un poisson-globe toxique,le château d'eau,à des fins politiques
+,le directeur Dusty,une pellicule de film,le labo de postproduction,pour venger son père
+,Pearl,un micro de doublage,le bar & grill du Château d'eau,pour sauver la face
+90,le président Midnight,un couteau en acier,le balcon,pour faire taire un témoin
+,la secrétaire Celadon,un Award,le bureau du courrier,pour prouver quelque chose
+,l'agent Argyle,des gants de cuir,le hall d'entrée,pour s'emparer du studio
+,Hack Blaxton,un contrat de mille pages,le meilleur bureau,pour des raisons religieuses
+91,l'agent Argyle,une horloge antique,le bureau d'un associé,pour obtenir un meilleur pourcentage
+,Hack Blaxton,un sac d'argent liquide,les archives,pour une arnaque immobilière
+,la juge Pine,un style en or,la salle de pause,par frustration
+,Maître Blackstone,une énorme pile de paperasse,le hall d'entrée,pour se venger
+92,Miss Saffron,un « faux » couteau,le public,au nom de l'industrie
+,Background Marengo,une fausse rose,la régie lumière,pour des raisons thématiques
+,le superfan Smoky,une carafe de whisky,la scène,pour faire diversion
+,l'assistante Applegreen,une lumière fantôme,la salle verte,pour promouvoir l'occulte
+93,l'Évêque Azure,un Award,la salle principale,pour aider à vendre un script
+,le directeur Dusty,une boule de cristal,l'arrière-boutique,pour promouvoir l'occulte
+,le camarade Champagne,une canne-épée,le perrron,au nom de l'industrie
+,Oncle Midnight,une dague maudite,la pièce secrète,pour voler un cristal
+94,l'assistante Applegreen,une lourde bougie,l'autel,au nom de l'industrie
+,le superfan Smoky,un drapeau à Rose,l'entrée secrète,parce que les ondes n'étaient pas bonnes
+,Background Marengo,un Award,le symbole au sol,pour faire une œuvre d'art
+,Tangerine,une bouteille de vin,les toilettes,pour s'emparer d'Hollywood
+95,l'éditrice Ivory,une imprimante,le toit,pour arrêter la révolution
+,le romancier Gainsboro,un ordinateur portable,la presse d'impression,par frustration
+,Hack Blaxton,un buste en marbre,le balcon,pour s'emparer du pouvoir
+,le camarade Champagne,un coupe-papier,l'open-space,pour échapper à un chantage
+96,la secrétaire Celadon,un jeu de tarot,la boutique d'accessoires de cinéma,pour se venger
+,Midnight III,un Award,les bungalows,pour promouvoir un film
+,le président Midnight,un support lumière,le théâtre de luxe,pour recevoir une reconnaissance méritée
+,la productrice exécutive Steel,une loupe,la scène fermée,pour s'emparer d'Hollywood
+97,l'actrice Abalone,un énorme script,Bungalow 3,pour voler un livre primé
+,Silverton la légende,un Award,Bungalow 2,pour se venger
+,Hack Blaxton,une machine à écrire antique,Bungalow 1,pour l'argent
+,Oncle Midnight,un stylo plume,Bungalow 4,pour gagner un Award
+98,Pearl,un couteau,une grande machine,pour protéger un secret
+,l'officière Copper,un baril de pétrole,un énorme réservoir,pour s'emparer du studio
+,Dame Obsidian,une barre de fer,une bâche,pour obtenir une promotion
+,Midnight III,une pelle,une pompe à pétrole,pour gagner un Award
+99,Midnight I,une pelle,les anciennes ruines,pour fonder un studio
+,Midnight Ado,une barre de fer,une pompe à pétrole,pour briser un couple
+,le président Amaranth,un baril de pétrole,une tour de forage à pétrole,pour toucher un héritage
+,le président Chalk,un pied-de-biche,les bureaux,pour aider à gagner une guerre
+100,Midnight III,un Award,la scène,pour s'emparer du studio
+,le président Midnight,un hareng rouge,les sièges en velours,pour garder le pouvoir
+,Dame Obsidian,une baguette en gypse,la sortie de secours,pour se venger
+,l'inspecteur Irratino,une bouteille de vin,le stand des boissons et snacks,pour trouver du pétrole
