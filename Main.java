@@ -1,4 +1,11 @@
 public class Main {
-    //Hello from Ryleigh!
-    
+    public static void main(String[] args) {
+        
+        
+
+    }
+    //method to read in file 
+    public static void readFile(){
+        
+    }
 }
