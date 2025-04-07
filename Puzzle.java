@@ -10,7 +10,7 @@ public class Puzzle {
 
     //constructor 
     public Puzzle(){  
-         
+         //for loop to create objects 
     }
 
     //methods 
@@ -43,6 +43,6 @@ public class Puzzle {
     }
 
     public void addPoruoi(){
-        
+
     }
 }
