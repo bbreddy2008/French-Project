@@ -13,8 +13,10 @@ public class Main {
 			//Scans all words as long as there is a word next
 			Scanner in = new Scanner(inputFile);
 			while(in.hasNextLine()){
-				//Add in other stuff
+				String input = in.nextLine();
+				String[] splitInput = input.split(",");
 			}
+			in.close();
 				
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
