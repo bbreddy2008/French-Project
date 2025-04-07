@@ -6,10 +6,38 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Main",
+            "name": "TwoColumnLayoutWithHeader",
             "request": "launch",
-            "mainClass": "Main",
-            "projectName": "French-Project_4aa0fc90"
+            "mainClass": "TwoColumnLayoutWithHeader",
+            "projectName": "French-Project_f42f882e"
+        },
+        {
+            "type": "java",
+            "name": "TextDemo",
+            "request": "launch",
+            "mainClass": "TextDemo",
+            "projectName": "French-Project_f42f882e"
+        },
+        {
+            "type": "java",
+            "name": "GridTest",
+            "request": "launch",
+            "mainClass": "GridTest",
+            "projectName": "French-Project_f42f882e"
+        },
+        {
+            "type": "java",
+            "name": "ResizablePanel",
+            "request": "launch",
+            "mainClass": "ResizablePanel",
+            "projectName": "French-Project_f42f882e"
+        },
+        {
+            "type": "java",
+            "name": "Interface",
+            "request": "launch",
+            "mainClass": "Interface",
+            "projectName": "French-Project_f42f882e"
         },
         {
             "type": "java",
