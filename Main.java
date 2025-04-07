@@ -21,6 +21,11 @@ public class Main {
 					String[] splitLineA = lineA.split(",");
 					String[] splitLineB = lineB.split(",");
 					String[] splitLineC = lineC.split(",");
+					Puzzle puzz = new Puzzle();//add counter
+					puzz.addQui(splitLineA[1]);
+					puzz.addQuoi(splitLineA[2]);
+					puzz.addOu(splitLineA[3]);
+
 				}else{
 					String lineA = in.nextLine();
 					String lineB = in.nextLine();
