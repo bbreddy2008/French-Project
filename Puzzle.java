@@ -6,14 +6,14 @@ public class Puzzle {
     private String[] qui;
     private String[] quoi;
     private String[] ou;
-    private String[] pourquoi; 
+    private String[] pourquoi;
 
     //constructor 
     public Puzzle(){  
          
     }
 
-    //methods 
+    //methods
     public int puzzleID(){
         return id; 
     }
