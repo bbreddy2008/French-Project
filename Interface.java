@@ -6,6 +6,7 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 
 
+
 public class Interface extends JPanel {
 
     private BufferedImage logo; // logo
@@ -13,6 +14,7 @@ public class Interface extends JPanel {
     JTextField quiTextField; // quiTextField
     
     public Interface() {
+        setLayout(null);
         try {                
             logo = ImageIO.read(this.getClass().getResource("logo.png"));
 
@@ -22,15 +24,16 @@ public class Interface extends JPanel {
 
         //logo
         logoPanel = new JLabel(new ImageIcon(logo));
-        logoPanel.setPreferredSize(new Dimension(1000, 250));
+        logoPanel.setBounds(0, 0, 1500, 250);
         add(logoPanel);
 
         // puzzle number
 
-        quiTextField = new JTextField("This is text.");
+        quiTextField = new JTextField();
         quiTextField.setColumns(2);
         Font bigFont = quiTextField.getFont().deriveFont(Font.PLAIN, 50f);
         quiTextField.setFont(bigFont);
+        quiTextField.setBounds(100, 300, 300, 60);
         add(quiTextField);
 
         // window stuff
@@ -52,5 +55,4 @@ public class Interface extends JPanel {
         g.setColor(new Color(255, 247, 232));
         g.fillRect(0, 0, getWidth(), getHeight());
     }
-
 }
