@@ -9,40 +9,47 @@ public class Puzzle {
     private ArrayList<String> pourquoi = new ArrayList<String>(); 
 
     //constructor 
-    public Puzzle(){  
-         //for loop to create objects 
+    public Puzzle(int numb){  
+        id = numb;
     }
 
     //methods 
     public int puzzleID(){
-
+        return id;
     }
 
+    //Only the first value
     public String getCorrect(){
 
     }
 
+    //All options
     public String getOptions(){
 
     }
 
+    //Input from the interface
     public String getInput(){
 
     }
 
-    public void addQui(){
+    //Adds options for Qui
+    public void addQui(String name){
 
     }
 
-    public void addQuoi(){
+    //Adds options for Quoi
+    public void addQuoi(String item){
 
     }
 
-    public void addOu(){
+    //Adds options for Ou
+    public void addOu(String place){
 
     }
 
-    public void addPoruoi(){
+    //Adds options for Pourquoi
+    public void addPoruoi(String reason){
 
     }
 }
