@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
-
+		readFile();
 	}
     
     //method to read in file 
