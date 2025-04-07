@@ -2,18 +2,18 @@ import java.util.ArrayList;
 
 public class Puzzle {
     private int id;
-    //arrayLists to hold each type of answer
-    private ArrayList<String> qui = new ArrayList<String>();
-    private ArrayList<String> quoi= new ArrayList<String>();
-    private ArrayList<String> ou = new ArrayList<String>();
-    private ArrayList<String> pourquoi = new ArrayList<String>(); 
+    //arrays to hold each type of answer
+    private String[] qui;
+    private String[] quoi;
+    private String[] ou;
+    private String[] pourquoi;
 
     //constructor 
     public Puzzle(int numb){  
         id = numb;
     }
 
-    //methods 
+    //methods
     public int puzzleID(){
         return id;
     }
