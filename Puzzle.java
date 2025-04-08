@@ -11,6 +11,12 @@ public class Puzzle {
     //constructor 
     public Puzzle(int numb){  
         id = numb;
+        if (id <= 50){
+            qui
+            quii
+            ou
+            qui
+        }
     }
 
     //methods
