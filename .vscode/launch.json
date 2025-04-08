@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "French-Project_4aa0fc90"
+        },
+        {
+            "type": "java",
+            "name": "Interface",
+            "request": "launch",
+            "mainClass": "Interface",
+            "projectName": "French-Project_4aa0fc90"
+        },
+        {
+            "type": "java",
             "name": "TwoColumnLayoutWithHeader",
             "request": "launch",
             "mainClass": "TwoColumnLayoutWithHeader",
