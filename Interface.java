@@ -15,9 +15,8 @@ public class Interface extends JPanel {
     
     public Interface() {
         setLayout(null);
-        try {                
+        try {        
             logo = ImageIO.read(this.getClass().getResource("logo.png"));
-
         } catch (IOException ex) {
             // ¯\_(ツ)_/¯
         }
@@ -33,7 +32,6 @@ public class Interface extends JPanel {
         quiTextField.setColumns(2);
         Font bigFont = quiTextField.getFont().deriveFont(Font.PLAIN, 50f);
         quiTextField.setFont(bigFont);
-        quiTextField.setBounds(100, 200, 80, 60);
         add(quiTextField);
 
         // window stuff
