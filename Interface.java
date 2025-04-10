@@ -42,7 +42,6 @@ public class Interface extends JPanel {
 
     private JButton submitPuzzleButton;
     private int puzzleNumber;
-    private Graphics g;
 
 
     
@@ -308,7 +307,7 @@ public class Interface extends JPanel {
     }
 
     public void setGreen(){
-        java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+        java.awt.Graphics2D g2 = (java.awt.Graphics2D) g2.create();
         g2.setColor(Color.GREEN);
          drawRoundedBox(g2, quiInputField);
          drawRoundedBox(g2, quoiInputField);
