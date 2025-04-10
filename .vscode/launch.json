@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< HEAD
+            "name": "RoundedRectangleTest",
+            "request": "launch",
+            "mainClass": "RoundedRectangleTest",
+            "projectName": "French-Project_f42f882e"
+        },
+        {
+            "type": "java",
+            "name": "RoundedJTextField",
+            "request": "launch",
+            "mainClass": "RoundedJTextField",
+            "projectName": "French-Project_f42f882e"
+        },
+        {
+            "type": "java",
+            "name": "JLabelExample",
+            "request": "launch",
+            "mainClass": "JLabelExample",
+            "projectName": "French-Project_f42f882e"
+=======
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "French-Project_4aa0fc90"
+        },
+        {
+            "type": "java",
+            "name": "Interface",
+            "request": "launch",
+            "mainClass": "Interface",
+            "projectName": "French-Project_4aa0fc90"
+>>>>>>> refs/remotes/origin/main
+        },
+        {
+            "type": "java",
             "name": "TwoColumnLayoutWithHeader",
             "request": "launch",
             "mainClass": "TwoColumnLayoutWithHeader",
