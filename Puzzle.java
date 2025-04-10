@@ -2,12 +2,14 @@ import java.util.ArrayList;
 import java.util.*;
 
 public class Puzzle {
+    //puzzle id number
     private int id;
-    //arrays to hold each type of answer
+    //Strings of each asnwer type 
     private String qui_answer;
     private String quoi_answer;
     private String ou_answer;
     private String pourquoi_answer;
+    //arrays to hold each type of answer
     private String[] qui;
     private String[] quoi;
     private String[] ou;
@@ -50,8 +52,15 @@ public class Puzzle {
     }
 
     //Only the first value
-    public String getCorrect(String[] array){
-        return array[0];
+    // puzzles[5].getCorrect()
+    public String[] getCorrect(){
+        if (id <= 50){
+            String[] send = {qui[0], quoi[0], ou[0]};
+            return send;
+        } else {
+            String[] send = {qui[0], quoi[0], ou[0], pourquoi[0]};
+            return send;
+        }
     }
 
     //All options

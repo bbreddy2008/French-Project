@@ -3,17 +3,41 @@ import java.io.*;
 
 public class Main {
 	private static Puzzle[] puzzles;
+	private static Interface myInterface;
 	private static Scanner scanner = new Scanner(System.in);
-	private static String qui_answer;
-    private static String quoi_answer;
-    private static String ou_answer;
-    private static String pourquoi_answer;
     public static void main(String[] args) {
 		puzzles = new Puzzle[100];
 		readFile();
-		System.out.println("Enter the id of puzzle.");
-		int n = scanner.nextInt();
-		getInput(n);
+		myInterface = new Interface();
+		
+
+		// Interface myInterface = new Interface();
+		// while (true) {
+		// 	System.out.println("" + myInterface.userAnswers()[0]);
+		// }
+	}
+
+	public static void checkAnswers(){
+		int pez = myInterface.getPuzzle();
+		myInterface.setGreen();
+		if (pez <= 50){
+			for (int i = 0; i < 3; i++) {
+				if (myInterface.userAnswers()[i].equalsIgnoreCase(puzzles[pez].getCorrect()[i])) {
+					myInterface.setGreen();
+				} else {
+					myInterface.setRed();
+				}
+			}
+		} else {
+			for (int i = 0; i < 4; i++) {
+				if (myInterface.userAnswers()[i].equalsIgnoreCase(puzzles[pez].getCorrect()[i])) {
+					myInterface.setGreen();
+				} else {
+					myInterface.setRed();
+				}
+			}
+		}
+		
 	}
     
     //method to read in file 
@@ -29,11 +53,8 @@ public class Main {
 
 					String[][] storedValue = new String[3][3];
 					String lineA = in.nextLine();
-					System.out.println(lineA);
 					String lineB = in.nextLine();
-					System.out.println(lineB);
 					String lineC = in.nextLine();
-					System.out.println(lineC);
 					String[] splitLineA = lineA.split(",");
 					String[] splitLineB = lineB.split(",");
 					String[] splitLineC = lineC.split(",");
@@ -52,13 +73,9 @@ public class Main {
 
 					String[][] storedValue = new String[4][4];
 					String lineA = in.nextLine();
-					System.out.println(lineA);
 					String lineB = in.nextLine();
-					System.out.println(lineB);
 					String lineC = in.nextLine();
-					System.out.println(lineC);
 					String lineD = in.nextLine();
-					System.out.println(lineD);
 					String[] splitLineA = lineA.split(",");
 					String[] splitLineB = lineB.split(",");
 					String[] splitLineC = lineC.split(",");
@@ -84,18 +101,12 @@ public class Main {
 		}
     }
 
-	//Input from the interface
-    public static void getInput(int id){
-        if (id <= 50){
-            qui_answer= scanner.nextLine();
-            quoi_answer= scanner.nextLine();
-            ou_answer= scanner.nextLine();
-            pourquoi_answer = null;
-        } else {
-            qui_answer= scanner.nextLine();
-            quoi_answer= scanner.nextLine();
-            ou_answer= scanner.nextLine();
-            pourquoi_answer = scanner.nextLine();
-        }
-    }
+	public static void submitButtonClicked() {
+		System.out.println("Submit button clicked!");
+		checkAnswers();
+	}
+
+	public static Puzzle givePuzzleData(){
+		return puzzles[myInterface.getPuzzle()];
+	}
 }
