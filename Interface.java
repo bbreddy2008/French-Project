@@ -114,36 +114,42 @@ public class Interface extends JPanel {
         porquoiLabel.setFont(font.deriveFont(Font.BOLD, 50f));
         porquoiLabel.setBounds(150,585,1000,100);
         add(porquoiLabel);
+=======
+        puzzleNumber.setBounds(220, 200, 80, 60);
+        puzzleNumber.setFont(font);
+        add(puzzleNumber);
 
-        // submit button
+        puzzleLabel = new JLabel("Puzzle:");
+        puzzleLabel.setFont(font.deriveFont(Font.BOLD, 50f));
+        puzzleLabel.setBounds(50,180,1000,100);
+        add(puzzleLabel);
 
-        submitButton = new JButton("Soumettre");
-        submitButton.setOpaque(false);
-        submitButton.setContentAreaFilled(false);
-        submitButton.setBorderPainted(false);
-        submitButton.setFont(font.deriveFont(Font.BOLD, 50f));
-        submitButton.setBounds(1100,650,350,100);
-        submitButton.setFocusPainted(false);
-        submitButton.addActionListener(e -> {
-           answers[0] = quiInputField.getText();
-           answers[1] = quoiInputField.getText();
-           answers[2] = ouInputField.getText();
-           answers[3] = pourquoiInputField.getText();
-           System.out.println("Answers submitted!" + answers[0]);
-        });
-        submitButton.addMouseListener(new java.awt.event.MouseAdapter() { // add muouse listener to detect mouse hovering over button
-            @Override
-            public void mouseEntered(java.awt.event.MouseEvent e) {
-                isHovering = true;
-                repaint();
-            }
-            @Override
-            public void mouseExited(java.awt.event.MouseEvent e) {
-                isHovering = false;
-                repaint();
-            }
-        });
-        add(submitButton);
+        // all text fields
+        quiInputField = new JTextField();
+        quiInputField.setColumns(2);
+        quiInputField.setFont(font);
+        quiInputField.setBounds(450, 300, 600, 60);
+        add(quiInputField);
+
+        quoiInputField = new JTextField();
+        quoiInputField.setColumns(2);
+        quoiInputField.setFont(font);
+        quoiInputField.setBounds(450, 400, 600, 60);
+        add(quoiInputField);
+
+        ouInputField = new JTextField();
+        ouInputField.setColumns(2);
+        ouInputField.setFont(font);
+        ouInputField.setBounds(450, 400, 600, 60);
+        add(ouInputField);
+
+        pourquoiInputField = new JTextField();
+        pourquoiInputField.setColumns(2);
+        pourquoiInputField.setFont(font);
+        pourquoiInputField.setBounds(450, 400, 600, 60);
+        add(pourquoiInputField);
+
+>>>>>>> refs/remotes/origin/main
 
         // window stuff
         setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
@@ -202,9 +208,13 @@ public class Interface extends JPanel {
     
         g.setColor(Color.GRAY);
         g.drawRoundRect(x, y, width, height, degrees, degrees);
-    }
+=======
+         // roundeded text box puzzle input
 
-    public String[] userAnswers() {
-        return answers;
+         // g2.setStroke(new java.awt.BasicStroke(5)); // thickness of 3.0f
+         // g2.setColor(Color.black);
+         // RoundRectangle2D roundedRectangle = new RoundRectangle2D.Double(200, 100, 100, 100, 15, 15);
+         // g2.draw(roundedRectangle);
+>>>>>>> refs/remotes/origin/main
     }
 }
