@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.awt.*;
 
 public class Main {
 	private static Puzzle[] puzzles;
@@ -17,26 +18,30 @@ public class Main {
 		// }
 	}
 
-	public static void checkAnswers(){
+		//Returned to Interface. Return values determine Green or Red coloring for rounded boxes.
+	public static boolean[] checkAnswers(){
+		boolean[] yOrN;
 		int pez = myInterface.getPuzzle();
-		myInterface.setGreen();
 		if (pez <= 50){
+			yOrN = new boolean[3];
 			for (int i = 0; i < 3; i++) {
 				if (myInterface.userAnswers()[i].equalsIgnoreCase(puzzles[pez].getCorrect()[i])) {
-					myInterface.setGreen();
+					yOrN[i] = true;
 				} else {
-					myInterface.setRed();
+					yOrN[i] = false;
 				}
 			}
 		} else {
+			yOrN = new boolean[4];
 			for (int i = 0; i < 4; i++) {
 				if (myInterface.userAnswers()[i].equalsIgnoreCase(puzzles[pez].getCorrect()[i])) {
-					myInterface.setGreen();
+					yOrN[i] = true;
 				} else {
-					myInterface.setRed();
+					yOrN[i] = false;
 				}
 			}
 		}
+		return yOrN;
 		
 	}
     
@@ -101,9 +106,9 @@ public class Main {
 		}
     }
 
-	public static void submitButtonClicked() {
+	public static boolean[] submitButtonClicked() {
 		System.out.println("Submit button clicked!");
-		checkAnswers();
+		return checkAnswers();
 	}
 
 	public static Puzzle givePuzzleData(){

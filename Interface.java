@@ -44,7 +44,7 @@ public class Interface extends JPanel {
     private int puzzleNumber;
 
 
-    
+    //TO DO: Change name of file from Interface to something else
     public Interface() {
         Font font;
         try { // initalize the font we're using
@@ -255,7 +255,7 @@ public class Interface extends JPanel {
          }
          g2.fillOval(helpButton.getX(),helpButton.getY()-10,100,100);
          
-         // subit button
+         // submit button
          g2.setColor(Color.BLACK);
          g2.fillRoundRect(submitButton.getX()-2, submitButton.getY()-2, submitButton.getWidth()+4, submitButton.getHeight()+4, 50,50);
          if (!isHovering) { // if the mouse is hovering over it
@@ -304,25 +304,5 @@ public class Interface extends JPanel {
 
     public int getPuzzle() {
         return puzzleNumber;
-    }
-
-    public void setGreen(){
-        java.awt.Graphics2D g2 = (java.awt.Graphics2D) g2.create();
-        g2.setColor(Color.GREEN);
-         drawRoundedBox(g2, quiInputField);
-         drawRoundedBox(g2, quoiInputField);
-         drawRoundedBox(g2, ouInputField);
-         drawRoundedBox(g2, pourquoiInputField);   
-        System.out.println("Works");
-        repaint();
-    }
-
-    public void setRed(){
-        quiInputField.setBackground(Color.RED);
-        quoiInputField.setBackground(Color.RED);
-        ouInputField.setBackground(Color.RED);
-        pourquoiInputField.setBackground(Color.RED);
-        System.out.println("Works");
-        repaint();
     }
 }
