@@ -21,7 +21,7 @@ public class Main {
 		//Returned to Interface. Return values determine Green or Red coloring for rounded boxes.
 	public static boolean[] checkAnswers(){
 		boolean[] yOrN;
-		int pez = myInterface.getPuzzle();
+		int pez = myInterface.getPuzzle() - 1;
 		if (pez <= 50){
 			yOrN = new boolean[3];
 			for (int i = 0; i < 3; i++) {
