@@ -15,33 +15,37 @@ import javax.swing.border.BevelBorder;
 
 public class Interface extends JPanel {
     private BufferedImage logo; // logo
-    private JLabel logoPanel; // logo panel
+    private final JLabel logoPanel; // logo panel
 
     private JTextField puzzleNumberField; // quiTextField
-    private JLabel puzzleLabel; // puzzle number label
+    private final JLabel puzzleLabel; // puzzle number label
 
     private JTextField quiInputField; // quiTextField
-    private JLabel quiLabel; // puzzle number label
+    private final JLabel quiLabel; // puzzle number label
 
     private JTextField quoiInputField; // quiTextField
-    private JLabel quoiLabel; // puzzle number label
+    private final JLabel quoiLabel; // puzzle number label
 
     private JTextField ouInputField; // quiTextField
-    private JLabel ouLabel; // puzzle number label
+    private final JLabel ouLabel; // puzzle number label
 
     private JTextField pourquoiInputField; // quiTextField
-    private JLabel porquoiLabel; // puzzle number labels
+    private final JLabel porquoiLabel; // puzzle number labels
 
-    private JButton submitButton; // submit button
+    private final JButton submitButton; // submit button
     private boolean isHovering = false; // see if mouse is hovering over submit button
-    String[] answers = new String[4];
+    private String[] answers = new String[4]; // the answers given from the text fields
     
-    private JButton helpButton; // help button!
+    private final JButton helpButton; // help button!
     private boolean isHoveringHelp; // hovering the help button
-    private boolean inHelpMenu = false;
+    private boolean inHelpMenu = false; // if the help menu should be open
 
-    private JButton submitPuzzleButton;
-    private int puzzleNumber;
+    private final JButton submitPuzzleButton; // the button for submitting the puzzle id
+    private int puzzleNumber; // the actual puzzle id
+
+    private boolean[] correctAnswers; // the correct answers returned from main
+
+    private Main myMain = new Main(); // a main object to send/recieve things between the itnerface
 
 
     //TO DO: Change name of file from Interface to something else
@@ -66,12 +70,12 @@ public class Interface extends JPanel {
         add(logoPanel);
         
         // puzzle number
-        puzzleNumberField = new JTextField();
+        puzzleNumberField = new JTextField(); // new text field
         puzzleNumberField.setColumns(2);
-        puzzleNumberField.setBounds(220, 205, 70, 50);
+        puzzleNumberField.setBounds(220, 205, 70, 50); // positioning and stuff
         puzzleNumberField.setFont(font);
         puzzleNumberField.setOpaque(false);
-        puzzleNumberField.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        puzzleNumberField.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // hitbox/border
         add(puzzleNumberField);
 
         puzzleLabel = new JLabel("Puzzle:");
@@ -111,7 +115,10 @@ public class Interface extends JPanel {
         pourquoiInputField.setBounds(450, 600, 600, 60);
         pourquoiInputField.setOpaque(false);
         pourquoiInputField.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        pourquoiInputField.setEditable(false);
+        pourquoiInputField.setFocusable(false);
         add(pourquoiInputField);
+
 
         // respective labels // quiLabel, quoiLabel, ouLabel, porquoiLabel
         quiLabel = new JLabel("Qui?");
@@ -133,6 +140,7 @@ public class Interface extends JPanel {
         porquoiLabel.setFont(font.deriveFont(Font.BOLD, 50f));
         porquoiLabel.setBounds(150,585,1000,100);
         add(porquoiLabel);
+        porquoiLabel.setForeground(new Color(porquoiLabel.getForeground().getRed(), porquoiLabel.getForeground().getGreen(), porquoiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
 
         // submit button
 
@@ -143,14 +151,13 @@ public class Interface extends JPanel {
         submitButton.setFont(font.deriveFont(Font.BOLD, 50f));
         submitButton.setBounds(1100,650,350,100);
         submitButton.setFocusPainted(false);
-        submitButton.addActionListener(e -> {
-           answers[0] = quiInputField.getText();
+        submitButton.addActionListener(e -> { // action listerner for the submit button
+           answers[0] = quiInputField.getText(); // set the answers to the answers in the text boxes
            answers[1] = quoiInputField.getText();
            answers[2] = ouInputField.getText();
            answers[3] = pourquoiInputField.getText();
-           Main myMain = new Main();
-           myMain.submitButtonClicked();
-           System.out.println("Answers submitted!" + answers[0]);
+           correctAnswers = myMain.submitButtonClicked(); // get the correct answers from main
+            repaint(); // repaint the gren and red if right or wrong
         });
         submitButton.addMouseListener(new java.awt.event.MouseAdapter() { // add muouse listener to detect mouse hovering over button
             @Override
@@ -174,9 +181,20 @@ public class Interface extends JPanel {
         submitPuzzleButton.setBorderPainted(false);
         submitPuzzleButton.setBounds(310,202,150,50);
         submitPuzzleButton.setFocusPainted(false);
-        submitPuzzleButton.addActionListener(e -> {
+        submitPuzzleButton.addActionListener(e -> { // actiona listerner for submitting a puzzle
             puzzleNumber = Integer.valueOf(puzzleNumberField.getText());
             System.out.println("id: "+puzzleNumber);
+            if (puzzleNumber < 50) { // if the puzzle number is less than 50 disable the porquoi option
+                porquoiLabel.setForeground(new Color(porquoiLabel.getForeground().getRed(), porquoiLabel.getForeground().getGreen(), porquoiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
+                pourquoiInputField.setEditable(false);
+                pourquoiInputField.setFocusable(false);
+                pourquoiInputField.setText("");
+            } else {
+                porquoiLabel.setForeground(new Color(porquoiLabel.getForeground().getRed(), porquoiLabel.getForeground().getGreen(), porquoiLabel.getForeground().getBlue(), (int)(1f * 255)));
+                pourquoiInputField.setEditable(true);
+                pourquoiInputField.setFocusable(true);
+            }
+            repaint();
         });
         add(submitPuzzleButton);
 
@@ -221,11 +239,7 @@ public class Interface extends JPanel {
         f.pack();
         f.setVisible(true);
     }
-
-    public static void main(String[] args) {
-        new Interface();
-    }
-
+    
     public void paintComponent(Graphics g) {
          java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
          Graphics2D g2d = (Graphics2D) g;
@@ -238,12 +252,16 @@ public class Interface extends JPanel {
          // roundeded text boxes
          g.setColor(new Color(232, 232, 232));
          g2.setStroke(new BasicStroke(2));
-         drawRoundedBox(g2, puzzleNumberField);
+
+         // draw the roudned box around the inptut puzzle number ting
+         drawRoundedBox(g2, puzzleNumberField, new Color(232, 232, 232), 0);
          g2.fillRoundRect(submitPuzzleButton.getX(),submitPuzzleButton.getY(), submitPuzzleButton.getWidth(), submitPuzzleButton.getHeight(),50,50);
-         drawRoundedBox(g2, quiInputField);
-         drawRoundedBox(g2, quoiInputField);
-         drawRoundedBox(g2, ouInputField);
-         drawRoundedBox(g2, pourquoiInputField);    
+         
+         // draw the rounided boxes around the input fields
+         drawRoundedBox(g2, quiInputField, new Color(232, 232, 232), 1);
+         drawRoundedBox(g2, quoiInputField, new Color(232, 232, 232), 2);
+         drawRoundedBox(g2, ouInputField, new Color(232, 232, 232), 3);
+         drawRoundedBox(g2, pourquoiInputField, new Color(232, 232, 232), 4);    
 
          // help button
          g2.setColor(new Color(0, 0, 0));
@@ -271,21 +289,34 @@ public class Interface extends JPanel {
          }
     }
 
-    private void drawRoundedBox(Graphics2D g, JTextField textField) {
+    private void drawRoundedBox(Graphics2D g, JTextField textField, Color color, int isAnswerField) {
         int degrees = 50;
         int x = textField.getX();
         int y = textField.getY()-3;
         int width = textField.getWidth();
         int height = textField.getHeight();
     
-        // g.setColor(new Color(232, 232, 232));
+        g.setColor(new Color(0 , 0, 0));
+        g.setColor(color);
         g.fillRoundRect(x, y, width, height, degrees, degrees);
-    
-        g.setColor(Color.GRAY);
+
+        if (isAnswerField > 0) { // for coloring the boxes based on answers, isAnswerField detects 1. if it's an answer field that's haivng a draw Rounded box 2. which answer field it is depending on its number
+            if (correctAnswers != null && isAnswerField - 1 < correctAnswers.length) { // for porqoui stuff yk
+                if (correctAnswers[isAnswerField - 1]) { // if correct green
+                    g.setColor(Color.GREEN);
+                } else { // if not, red!
+                    g.setColor(Color.RED);
+                }
+            } else { // and if it's null (not checked yet) jus tgray
+                g.setColor(Color.GRAY);
+            }
+        } else {
+            g.setColor(Color.GRAY);
+        }                
         g.drawRoundRect(x, y, width, height, degrees, degrees);
     }
 
-    private void helpMenu(Graphics2D g) {
+    private void helpMenu(Graphics2D g) { // TODO: finish making this
         g.setColor(Color.BLACK);
         float alpha = 0.5f;
         AlphaComposite alcom = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
