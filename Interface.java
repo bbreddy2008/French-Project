@@ -9,9 +9,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
-
 
 public class Interface extends JPanel {
     private BufferedImage logo; // logo
@@ -46,6 +48,10 @@ public class Interface extends JPanel {
     private boolean[] correctAnswers; // the correct answers returned from main
 
     private Main myMain = new Main(); // a main object to send/recieve things between the itnerface
+
+    private boolean resetFields; // to reset the fields
+
+    private JLabel inCorrect;
 
 
     //TO DO: Change name of file from Interface to something else
@@ -152,12 +158,22 @@ public class Interface extends JPanel {
         submitButton.setBounds(1100,650,350,100);
         submitButton.setFocusPainted(false);
         submitButton.addActionListener(e -> { // action listerner for the submit button
+            resetFields = false;
            answers[0] = quiInputField.getText(); // set the answers to the answers in the text boxes
            answers[1] = quoiInputField.getText();
            answers[2] = ouInputField.getText();
            answers[3] = pourquoiInputField.getText();
            correctAnswers = myMain.submitButtonClicked(); // get the correct answers from main
             repaint(); // repaint the gren and red if right or wrong
+            if (correctAnswers[0] && correctAnswers[1] && correctAnswers[2]) {
+                if (correctAnswers.length == 3) {
+                    playSound("correct.wav");   
+                } else if (correctAnswers.length == 4) {
+                    if (correctAnswers[3]) {
+                        playSound("correct.wav");   
+                    }
+                }
+            }
         });
         submitButton.addMouseListener(new java.awt.event.MouseAdapter() { // add muouse listener to detect mouse hovering over button
             @Override
@@ -183,6 +199,11 @@ public class Interface extends JPanel {
         submitPuzzleButton.setFocusPainted(false);
         submitPuzzleButton.addActionListener(e -> { // actiona listerner for submitting a puzzle
             puzzleNumber = Integer.valueOf(puzzleNumberField.getText());
+            quiInputField.setText("");
+            quoiInputField.setText("");
+            ouInputField.setText("");
+            pourquoiInputField.setText("");
+            resetFields = true;
             System.out.println("id: "+puzzleNumber);
             if (puzzleNumber < 50) { // if the puzzle number is less than 50 disable the porquoi option
                 porquoiLabel.setForeground(new Color(porquoiLabel.getForeground().getRed(), porquoiLabel.getForeground().getGreen(), porquoiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
@@ -226,6 +247,12 @@ public class Interface extends JPanel {
             }
         });
         add(helpButton);
+
+        // correct/incorrect answer
+        inCorrect = new JLabel("Essayez encore");
+        inCorrect.setFont(font.deriveFont(Font.BOLD, 50f));
+        inCorrect.setBounds(560,180,1000,100);
+        add(inCorrect);
 
         // window stuff
         setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
@@ -287,6 +314,15 @@ public class Interface extends JPanel {
          if (inHelpMenu) {
             helpMenu(g2);
          }
+
+         if (resetFields) {
+            answers = new String[4];
+            drawRoundedBox(g2, quiInputField, new Color(232, 232, 232), 1);
+            drawRoundedBox(g2, quoiInputField, new Color(232, 232, 232), 2);
+            drawRoundedBox(g2, ouInputField, new Color(232, 232, 232), 3);
+            drawRoundedBox(g2, pourquoiInputField, new Color(232, 232, 232), 4);
+            // resetFields = false;
+         }
     }
 
     private void drawRoundedBox(Graphics2D g, JTextField textField, Color color, int isAnswerField) {
@@ -300,12 +336,12 @@ public class Interface extends JPanel {
         g.setColor(color);
         g.fillRoundRect(x, y, width, height, degrees, degrees);
 
-        if (isAnswerField > 0) { // for coloring the boxes based on answers, isAnswerField detects 1. if it's an answer field that's haivng a draw Rounded box 2. which answer field it is depending on its number
+        if (isAnswerField > 0 && !resetFields) { // for coloring the boxes based on answers, isAnswerField detects 1. if it's an answer field that's haivng a draw Rounded box 2. which answer field it is depending on its number
             if (correctAnswers != null && isAnswerField - 1 < correctAnswers.length) { // for porqoui stuff yk
                 if (correctAnswers[isAnswerField - 1]) { // if correct green
-                    g.setColor(Color.GREEN);
+                    g.setColor(new Color(147,197,114));
                 } else { // if not, red!
-                    g.setColor(Color.RED);
+                    g.setColor(new Color(205,92,92));
                 }
             } else { // and if it's null (not checked yet) jus tgray
                 g.setColor(Color.GRAY);
@@ -335,5 +371,17 @@ public class Interface extends JPanel {
 
     public int getPuzzle() {
         return puzzleNumber;
+    }
+
+    public void playSound(String filePath) { // to play audio
+        try {
+            File soundFile = new File(filePath);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
