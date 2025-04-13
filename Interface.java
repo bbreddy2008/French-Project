@@ -55,7 +55,7 @@ public class Interface extends JPanel {
 
     private boolean resetFields; // to reset the fields
 
-    private JLabel inCorrect;
+    private JLabel inCorrect; // if your answers are in correct or correct
 
     private boolean helpInFrench = true; // default to French
 
@@ -184,7 +184,7 @@ public class Interface extends JPanel {
                         playSound("correct.wav");   
                     }
                 }
-            } else {
+            } else { // if the answers are not correct...
                 inCorrect.setText("Essayez encore!");
                 inCorrect.setVisible(true);
             }
@@ -244,8 +244,8 @@ public class Interface extends JPanel {
         helpButton.setFocusPainted(false);
 
         helpButton.addActionListener(e -> {
-            inHelpMenu = !inHelpMenu;
-            glassPane.setVisible(inHelpMenu);
+            inHelpMenu = !inHelpMenu; // toggle between being in/out of the menu
+            glassPane.setVisible(inHelpMenu); // toggle the visiblity of the help menu
             glassPane.repaint();
         });
 
@@ -283,7 +283,7 @@ public class Interface extends JPanel {
         f.pack();
         f.setVisible(true);
 
-        glassPane = new JComponent() {
+        glassPane = new JComponent() { // help menu
             @Override
             protected void paintComponent(Graphics g) {
                 Font font;
@@ -293,20 +293,18 @@ public class Interface extends JPanel {
                     font = new Font("Arial", Font.PLAIN, 12);
                 }
 
-                if (!inHelpMenu) return; // only draw if help is open
+                Graphics2D g2 = (Graphics2D) g; // initalize the graphics ting
+                g2.setColor(new Color(0, 0, 0, 120)); 
+                g2.fillRect(0, 0, getWidth(), getHeight());// make background out of focus
 
-                Graphics2D g2 = (Graphics2D) g;
-                g2.setColor(new Color(0, 0, 0, 120)); // dark background
-                g2.fillRect(0, 0, getWidth(), getHeight());
-
-                g2.setColor(new Color(255, 255, 255));
-                g2.fillRoundRect(400, 200, 700, 500, 20, 20);
+                g2.setColor(new Color(242, 243, 244));
+                g2.fillRoundRect(400, 200, 700, 500, 20, 20); // make the actual panel itself
 
                 g2.setColor(new Color(0,0,0,150));
                 g2.setFont(font.deriveFont(Font.BOLD, 50f));
-                g2.drawString("ANGLAIS | FRANÇAIS", 525, 650);
+                g2.drawString("ANGLAIS | FRANÇAIS", 525, 650); // toggle between english and french help menu
 
-                if (helpInFrench) {
+                if (helpInFrench) { // chagen the language in the menu
                     g2.setColor(Color.BLACK);
                     g2.setFont(font.deriveFont(Font.BOLD, 50f));
                     g2.drawString("Comment jouer!", 475, 280);
@@ -332,7 +330,7 @@ public class Interface extends JPanel {
 
         glassPane.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mouseClicked(MouseEvent e) { // detect the click on the change language button
                 int x = e.getX();
                 int y = e.getY();
                 Rectangle toggleBounds = new Rectangle(525, 620, 500, 40);
@@ -390,11 +388,6 @@ public class Interface extends JPanel {
             g2.setColor(new Color(210, 210, 210));
          }
          g2.fillRoundRect(submitButton.getX(), submitButton.getY(), submitButton.getWidth(), submitButton.getHeight(), 50,50); // submit button
-         
-         // help menu
-         if (inHelpMenu) {
-            helpMenu(g2);
-         }
 
          if (resetFields) {
             answers = new String[4];
@@ -434,24 +427,11 @@ public class Interface extends JPanel {
         g.drawRoundRect(x, y, width, height, degrees, degrees);
     }
 
-    private void helpMenu(Graphics2D g) { // TODO: finish making this
-        // g.setColor(Color.BLACK);
-        // float alpha = 0.5f;
-        // AlphaComposite alcom = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
-        // g.setComposite(alcom);
-        // g.fillRoundRect(400+3,200+3,710,510, 20, 20);
-        // alpha = 1f;
-        // alcom = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
-        // g.setComposite(alcom);
-        // g.setColor(new Color(150, 150, 150));
-        // g.fillRoundRect(400,200,700,500, 20, 20);
-    }
-
-    public String[] userAnswers() {
+    public String[] userAnswers() { // take a wild guess at what this does
         return answers;
     }
 
-    public int getPuzzle() {
+    public int getPuzzle() { // take another wild guess at what this does
         return puzzleNumber;
     }
 
