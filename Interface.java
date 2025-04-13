@@ -53,8 +53,6 @@ public class Interface extends JPanel {
 
     private JLabel inCorrect;
 
-
-    //TO DO: Change name of file from Interface to something else
     public Interface() {
         Font font;
         try { // initalize the font we're using
@@ -167,12 +165,19 @@ public class Interface extends JPanel {
             repaint(); // repaint the gren and red if right or wrong
             if (correctAnswers[0] && correctAnswers[1] && correctAnswers[2]) {
                 if (correctAnswers.length == 3) {
+                    inCorrect.setText("Bravo!");
+                    inCorrect.setVisible(true);
                     playSound("correct.wav");   
                 } else if (correctAnswers.length == 4) {
                     if (correctAnswers[3]) {
+                        inCorrect.setText("Bravo!");
+                        inCorrect.setVisible(true);
                         playSound("correct.wav");   
                     }
                 }
+            } else {
+                inCorrect.setText("Essayez encore!");
+                inCorrect.setVisible(true);
             }
         });
         submitButton.addMouseListener(new java.awt.event.MouseAdapter() { // add muouse listener to detect mouse hovering over button
@@ -250,9 +255,12 @@ public class Interface extends JPanel {
 
         // correct/incorrect answer
         inCorrect = new JLabel("Essayez encore");
+        inCorrect.setVisible(false);
         inCorrect.setFont(font.deriveFont(Font.BOLD, 50f));
-        inCorrect.setBounds(560,180,1000,100);
-        add(inCorrect);
+        inCorrect.setBounds(250,180,1000,100);
+        inCorrect.setHorizontalAlignment(SwingConstants.CENTER);
+        inCorrect.setVerticalAlignment(SwingConstants.CENTER);
+        add(inCorrect, BorderLayout.CENTER);
 
         // window stuff
         setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
