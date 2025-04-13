@@ -5,6 +5,7 @@
 //      returns the puzzle number submitted by the user
 
 import java.awt.*;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +17,9 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 
 public class Interface extends JPanel {
+    private JFrame f;
+    private JComponent glassPane;
+
     private BufferedImage logo; // logo
     private final JLabel logoPanel; // logo panel
 
@@ -53,7 +57,12 @@ public class Interface extends JPanel {
 
     private JLabel inCorrect;
 
+    private boolean helpInFrench = true; // default to French
+
+
     public Interface() {
+        f = new JFrame();; // choose to add title, i prefer not but whatever
+
         Font font;
         try { // initalize the font we're using
             font = Font.createFont(Font.TRUETYPE_FONT, new File("Gluten-VariableFont_slnt,wght.ttf")).deriveFont(Font.BOLD,40f);
@@ -236,7 +245,8 @@ public class Interface extends JPanel {
 
         helpButton.addActionListener(e -> {
             inHelpMenu = !inHelpMenu;
-            repaint();
+            glassPane.setVisible(inHelpMenu);
+            glassPane.repaint();
         });
 
         helpButton.addMouseListener(new java.awt.event.MouseAdapter() { // add muouse listener to detect mouse hovering over button
@@ -265,7 +275,6 @@ public class Interface extends JPanel {
         // window stuff
         setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         setPreferredSize(new Dimension(500, 500));
-        final JFrame f = new JFrame(); // choose to add title, i prefer not but whatever
         f.getContentPane().setLayout(new BorderLayout());
         f.getContentPane().add(this,BorderLayout.CENTER);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -273,6 +282,70 @@ public class Interface extends JPanel {
         // f.setUndecorated(true); // if we want no top or not
         f.pack();
         f.setVisible(true);
+
+        glassPane = new JComponent() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                Font font;
+                try { // initalize the font we're using
+                    font = Font.createFont(Font.TRUETYPE_FONT, new File("Gluten-VariableFont_slnt,wght.ttf")).deriveFont(Font.BOLD,40f);
+                } catch (FontFormatException | IOException exception) {
+                    font = new Font("Arial", Font.PLAIN, 12);
+                }
+
+                if (!inHelpMenu) return; // only draw if help is open
+
+                Graphics2D g2 = (Graphics2D) g;
+                g2.setColor(new Color(0, 0, 0, 120)); // dark background
+                g2.fillRect(0, 0, getWidth(), getHeight());
+
+                g2.setColor(new Color(255, 255, 255));
+                g2.fillRoundRect(400, 200, 700, 500, 20, 20);
+
+                g2.setColor(new Color(0,0,0,150));
+                g2.setFont(font.deriveFont(Font.BOLD, 50f));
+                g2.drawString("ANGLAIS | FRANÇAIS", 525, 650);
+
+                if (helpInFrench) {
+                    g2.setColor(Color.BLACK);
+                    g2.setFont(font.deriveFont(Font.BOLD, 50f));
+                    g2.drawString("Comment jouer!", 475, 280);
+                    g2.setFont(font.deriveFont(Font.BOLD, 23f));
+                    g2.drawString("• Remplis Qui, Quoi, Où, et peut-être Pourquoi", 470, 360);
+                    g2.drawString("• Clique \"Soumettre\" pour valider tes réponses", 470, 430);
+                    g2.drawString("• Le bouton \"?\" affiche ce menu d'aide", 470, 500);
+                } else {
+                    g2.setColor(Color.BLACK);
+                    g2.setFont(font.deriveFont(Font.BOLD, 50f));
+                    g2.drawString("Help!", 480, 280);
+                    g2.setFont(font.deriveFont(Font.BOLD, 23f));
+                    g2.drawString("• Fill out Qui, Quoi, Où, and maybe Pourquoi", 470, 360);
+                    g2.drawString("• Click \"Soumettre\" to submit your answers", 470, 430);
+                    g2.drawString("• The \"?\" button opens this help menu", 470, 500);
+                }
+            }
+        };
+
+        glassPane.setOpaque(false);
+        glassPane.setVisible(false); // start hidden
+        f.setGlassPane(glassPane);
+
+        glassPane.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int x = e.getX();
+                int y = e.getY();
+                Rectangle toggleBounds = new Rectangle(525, 620, 500, 40);
+                if (toggleBounds.contains(x, y)) {
+                    helpInFrench = !helpInFrench;
+                } else {
+                    inHelpMenu = false;
+                    glassPane.setVisible(false);
+                }
+
+                repaint();
+            }
+        });
     }
     
     public void paintComponent(Graphics g) {
@@ -325,6 +398,7 @@ public class Interface extends JPanel {
 
          if (resetFields) {
             answers = new String[4];
+            inCorrect.setVisible(false);
             drawRoundedBox(g2, quiInputField, new Color(232, 232, 232), 1);
             drawRoundedBox(g2, quoiInputField, new Color(232, 232, 232), 2);
             drawRoundedBox(g2, ouInputField, new Color(232, 232, 232), 3);
@@ -361,16 +435,16 @@ public class Interface extends JPanel {
     }
 
     private void helpMenu(Graphics2D g) { // TODO: finish making this
-        g.setColor(Color.BLACK);
-        float alpha = 0.5f;
-        AlphaComposite alcom = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
-        g.setComposite(alcom);
-        g.fillRoundRect(400+3,200+3,710,510, 20, 20);
-        alpha = 1f;
-        alcom = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
-        g.setComposite(alcom);
-        g.setColor(new Color(150, 150, 150));
-        g.fillRoundRect(400,200,700,500, 20, 20);
+        // g.setColor(Color.BLACK);
+        // float alpha = 0.5f;
+        // AlphaComposite alcom = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
+        // g.setComposite(alcom);
+        // g.fillRoundRect(400+3,200+3,710,510, 20, 20);
+        // alpha = 1f;
+        // alcom = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
+        // g.setComposite(alcom);
+        // g.setColor(new Color(150, 150, 150));
+        // g.fillRoundRect(400,200,700,500, 20, 20);
     }
 
     public String[] userAnswers() {
