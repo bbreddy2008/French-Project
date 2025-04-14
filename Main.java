@@ -40,6 +40,11 @@ public class Main {
 		return yOrN;
 		
 	}
+
+	public static boolean[] checkOptions(){
+		boolean[] checktheOptions;
+		return checktheOptions;
+	}
     
     //method to read in file 
     public static void readFile(){

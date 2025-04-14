@@ -63,7 +63,7 @@ public class Puzzle {
         }
     }
 
-    //All options
+    // returns options
     public String[] getOptions(String[] array){
         String[] options = new String[array.length];
         for (int i = 0; i < array.length; i++) {
