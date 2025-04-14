@@ -221,7 +221,7 @@ public class Interface extends JPanel {
             ouInputField.setText("");
             pourquoiInputField.setText("");
             resetFields = true;
-            System.out.println("id: "+puzzleNumber);
+            System.out.println("id: "+ puzzleNumber);
             if (puzzleNumber < 50) { // if the puzzle number is less than 50 disable the porquoi option
                 porquoiLabel.setForeground(new Color(porquoiLabel.getForeground().getRed(), porquoiLabel.getForeground().getGreen(), porquoiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
                 pourquoiInputField.setEditable(false);
