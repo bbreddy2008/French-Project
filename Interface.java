@@ -104,6 +104,8 @@ public class Interface extends JPanel {
         quiInputField.setBounds(450, 300, 600, 60); // position and size it
         quiInputField.setOpaque(false); // make the background opaque (needed for the rounded corners)
         quiInputField.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // needed for the rounded corners
+        quiInputField.setEditable(false);
+        quiInputField.setFocusable(false);
         add(quiInputField); // finally, add it to the panel
         
         quoiInputField = new JTextField();
@@ -112,6 +114,8 @@ public class Interface extends JPanel {
         quoiInputField.setBounds(450, 400, 600, 60);
         quoiInputField.setOpaque(false);
         quoiInputField.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        quoiInputField.setEditable(false);
+        quoiInputField.setFocusable(false);
         add(quoiInputField);
 
         ouInputField = new JTextField();
@@ -120,6 +124,8 @@ public class Interface extends JPanel {
         ouInputField.setBounds(450, 500, 600, 60);
         ouInputField.setOpaque(false);
         ouInputField.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        ouInputField.setEditable(false);
+        ouInputField.setFocusable(false);
         add(ouInputField);
 
         pourquoiInputField = new JTextField();
@@ -138,16 +144,21 @@ public class Interface extends JPanel {
         quiLabel.setFont(font.deriveFont(Font.BOLD, 50f));
         quiLabel.setBounds(220,285,1000,100);
         add(quiLabel);
+        quiLabel.setForeground(new Color(quiLabel.getForeground().getRed(), quiLabel.getForeground().getGreen(), quiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
 
         quoiLabel = new JLabel("Quoi?");
         quoiLabel.setFont(font.deriveFont(Font.BOLD, 50f));
         quoiLabel.setBounds(200,385,1000,100);
         add(quoiLabel);
+        quoiLabel.setForeground(new Color(quoiLabel.getForeground().getRed(), quoiLabel.getForeground().getGreen(), quoiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
+
 
         ouLabel = new JLabel("Oú?");
         ouLabel.setFont(font.deriveFont(Font.BOLD, 50f));
         ouLabel.setBounds(220,485,1000,100);
         add(ouLabel);
+        ouLabel.setForeground(new Color(ouLabel.getForeground().getRed(), ouLabel.getForeground().getGreen(), ouLabel.getForeground().getBlue(), (int)(0.5f * 255)));
+
 
         porquoiLabel = new JLabel("Pourquoi?");
         porquoiLabel.setFont(font.deriveFont(Font.BOLD, 50f));
@@ -222,15 +233,65 @@ public class Interface extends JPanel {
             pourquoiInputField.setText("");
             resetFields = true;
             System.out.println("id: "+puzzleNumber);
-            if (puzzleNumber < 50) { // if the puzzle number is less than 50 disable the porquoi option
+            if(puzzleNumber <= 0 || puzzleNumber > 100){
+
+                quiLabel.setForeground(new Color(quiLabel.getForeground().getRed(), quiLabel.getForeground().getGreen(), quiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
+                quiInputField.setEditable(false);
+                quiInputField.setFocusable(false);
+                quiInputField.setText("");
+
+                quoiLabel.setForeground(new Color(quoiLabel.getForeground().getRed(), quoiLabel.getForeground().getGreen(), quoiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
+                quoiInputField.setEditable(false);
+                quoiInputField.setFocusable(false);
+                quoiInputField.setText("");
+
+                ouLabel.setForeground(new Color(ouLabel.getForeground().getRed(), ouLabel.getForeground().getGreen(), ouLabel.getForeground().getBlue(), (int)(0.5f * 255)));
+                ouInputField.setEditable(false);
+                ouInputField.setFocusable(false);
+                ouInputField.setText("");
+
                 porquoiLabel.setForeground(new Color(porquoiLabel.getForeground().getRed(), porquoiLabel.getForeground().getGreen(), porquoiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
                 pourquoiInputField.setEditable(false);
                 pourquoiInputField.setFocusable(false);
                 pourquoiInputField.setText("");
+
+            } else if (puzzleNumber <= 50) { // if the puzzle number is less than 50 disable the porquoi option
+
+                quiLabel.setForeground(new Color(quiLabel.getForeground().getRed(), quiLabel.getForeground().getGreen(), quiLabel.getForeground().getBlue(), (int)(1f * 255)));
+                quiInputField.setEditable(true);
+                quiInputField.setFocusable(true);
+
+                quoiLabel.setForeground(new Color(quoiLabel.getForeground().getRed(), quoiLabel.getForeground().getGreen(), quoiLabel.getForeground().getBlue(), (int)(1f * 255)));
+                quoiInputField.setEditable(true);
+                quoiInputField.setFocusable(true);
+
+                ouLabel.setForeground(new Color(ouLabel.getForeground().getRed(), ouLabel.getForeground().getGreen(), ouLabel.getForeground().getBlue(), (int)(1f * 255)));
+                ouInputField.setEditable(true);
+                ouInputField.setFocusable(true);
+
+                porquoiLabel.setForeground(new Color(porquoiLabel.getForeground().getRed(), porquoiLabel.getForeground().getGreen(), porquoiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
+                pourquoiInputField.setEditable(false);
+                pourquoiInputField.setFocusable(false);
+                pourquoiInputField.setText("");
+
             } else {
+
+                quiLabel.setForeground(new Color(quiLabel.getForeground().getRed(), quiLabel.getForeground().getGreen(), quiLabel.getForeground().getBlue(), (int)(1f * 255)));
+                quiInputField.setEditable(true);
+                quiInputField.setFocusable(true);
+
+                quoiLabel.setForeground(new Color(quoiLabel.getForeground().getRed(), quoiLabel.getForeground().getGreen(), quoiLabel.getForeground().getBlue(), (int)(1f * 255)));
+                quoiInputField.setEditable(true);
+                quoiInputField.setFocusable(true);
+
+                ouLabel.setForeground(new Color(ouLabel.getForeground().getRed(), ouLabel.getForeground().getGreen(), ouLabel.getForeground().getBlue(), (int)(1f * 255)));
+                ouInputField.setEditable(true);
+                ouInputField.setFocusable(true);
+
                 porquoiLabel.setForeground(new Color(porquoiLabel.getForeground().getRed(), porquoiLabel.getForeground().getGreen(), porquoiLabel.getForeground().getBlue(), (int)(1f * 255)));
                 pourquoiInputField.setEditable(true);
                 pourquoiInputField.setFocusable(true);
+
             }
             repaint();
         });
