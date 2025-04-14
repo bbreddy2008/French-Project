@@ -2,6 +2,7 @@ import java.util.*;
 import java.io.*;
 import java.awt.*;
 
+//The main program that activates all the programs
 public class Main {
 	private static Puzzle[] puzzles;
 	private static Interface myInterface;
@@ -11,11 +12,6 @@ public class Main {
 		readFile();
 		myInterface = new Interface();
 		
-
-		// Interface myInterface = new Interface();
-		// while (true) {
-		// 	System.out.println("" + myInterface.userAnswers()[0]);
-		// }
 	}
 
 		//Returned to Interface. Return values determine Green or Red coloring for rounded boxes.
