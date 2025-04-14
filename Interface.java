@@ -232,6 +232,7 @@ public class Interface extends JPanel {
             ouInputField.setText("");
             pourquoiInputField.setText("");
             resetFields = true;
+            
             System.out.println("id: "+puzzleNumber);
             if(puzzleNumber <= 0 || puzzleNumber > 100){
 
