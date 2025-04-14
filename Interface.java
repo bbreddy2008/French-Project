@@ -175,17 +175,20 @@ public class Interface extends JPanel {
             if (correctAnswers[0] && correctAnswers[1] && correctAnswers[2]) {
                 if (correctAnswers.length == 3) {
                     inCorrect.setText("Bravo!");
+                    inCorrect.setBounds(240,180,1000,100);
                     inCorrect.setVisible(true);
                     playSound("correct.wav");   
                 } else if (correctAnswers.length == 4) {
                     if (correctAnswers[3]) {
                         inCorrect.setText("Bravo!");
+                        inCorrect.setBounds(240,180,1000,100);
                         inCorrect.setVisible(true);
                         playSound("correct.wav");   
                     }
                 }
             } else { // if the answers are not correct...
                 inCorrect.setText("Essayez encore!");
+                inCorrect.setBounds(250,180,1000,100);
                 inCorrect.setVisible(true);
             }
         });
