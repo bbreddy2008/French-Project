@@ -69,7 +69,7 @@ public class Puzzle {
         }
     }
 
-    //Accesses all of the possible option answers for the puzzle 
+    //All options
     public String[] getOptions(String[] array){
         String[] options = new String[array.length];
         for (int i = 0; i < array.length; i++) {
