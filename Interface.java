@@ -173,7 +173,7 @@ public class Interface extends JPanel {
         submitButton.setContentAreaFilled(false);
         submitButton.setBorderPainted(false);
         submitButton.setFont(font.deriveFont(Font.BOLD, 50f));
-        submitButton.setBounds(1100,650,350,100);
+        submitButton.setBounds(1075,650,350,100);
         submitButton.setFocusPainted(false);
         submitButton.addActionListener(e -> { // action listerner for the submit button
             resetFields = false;
@@ -305,7 +305,7 @@ public class Interface extends JPanel {
         helpButton.setContentAreaFilled(false);
         helpButton.setBorderPainted(false);
         helpButton.setFont(font.deriveFont(Font.BOLD, 100f));
-        helpButton.setBounds(1350,50,100,100);
+        helpButton.setBounds(1300,50,100,100);
         helpButton.setFocusPainted(false);
 
         helpButton.addActionListener(e -> {
