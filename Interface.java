@@ -7,8 +7,11 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+
 import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -63,7 +66,7 @@ public class Interface extends JPanel {
         f = new JFrame();; // choose to add title, i prefer not but whatever
 
         try { // initalize the font we're using
-            font = Font.createFont(Font.TRUETYPE_FONT, new File("Lancelot-Regular.ttf")).deriveFont(Font.BOLD,40f);
+        font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Lancelot-Regular.ttf")).deriveFont(Font.BOLD,40f);
         } catch (FontFormatException | IOException exception) {
             font = new Font("Arial", Font.PLAIN, 12);
         }
@@ -343,7 +346,7 @@ public class Interface extends JPanel {
             protected void paintComponent(Graphics g) {
                 Font font;
                 try { // initalize the font we're using
-                    font = Font.createFont(Font.TRUETYPE_FONT, new File("Lancelot-Regular.ttf")).deriveFont(Font.BOLD,40f);
+                font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Lancelot-Regular.ttf")).deriveFont(Font.BOLD,40f);
                 } catch (FontFormatException | IOException exception) {
                     font = new Font("Arial", Font.PLAIN, 12);
                 }
@@ -469,8 +472,9 @@ public class Interface extends JPanel {
 
     public void playSound(String filePath) { // to play audio
         try {
-            File soundFile = new File(filePath);
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+            InputStream audioSrc = getClass().getResourceAsStream("/" + filePath);
+            BufferedInputStream bufferedIn = new BufferedInputStream(audioSrc);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(bufferedIn);
             Clip clip = AudioSystem.getClip();
             clip.open(audioIn);
             clip.start();
