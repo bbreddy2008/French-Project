@@ -15,8 +15,11 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import java.util.*;
 
 public class Interface extends JPanel {
+    private Font font; // the font
+
     private JFrame f;
     private JComponent glassPane;
 
@@ -25,17 +28,9 @@ public class Interface extends JPanel {
 
     private JTextField puzzleNumberField; // quiTextField
     private final JLabel puzzleLabel; // puzzle number label
-
-    private JTextField quiInputField; // quiTextField
     private final JLabel quiLabel; // puzzle number label
-
-    private JTextField quoiInputField; // quiTextField
     private final JLabel quoiLabel; // puzzle number label
-
-    private JTextField ouInputField; // quiTextField
     private final JLabel ouLabel; // puzzle number label
-
-    private JTextField pourquoiInputField; // quiTextField
     private final JLabel porquoiLabel; // puzzle number labels
 
     private final JButton submitButton; // submit button
@@ -53,25 +48,28 @@ public class Interface extends JPanel {
 
     private Main myMain = new Main(); // a main object to send/recieve things between the itnerface
 
-    private boolean resetFields; // to reset the fields
-
     private JLabel inCorrect; // if your answers are in correct or correct
 
     private boolean helpInFrench = true; // default to French
 
+    // the four drop downs (called comboboxes for sm reason)
+
+    private JComboBox<String> quiCombo;
+    private JComboBox<String> quoiCombo;
+    private JComboBox<String> ouCombo;
+    private JComboBox<String> pourquoiCombo;
 
     public Interface() {
         f = new JFrame();; // choose to add title, i prefer not but whatever
 
-        Font font;
         try { // initalize the font we're using
-            font = Font.createFont(Font.TRUETYPE_FONT, new File("Gluten-VariableFont_slnt,wght.ttf")).deriveFont(Font.BOLD,40f);
+            font = Font.createFont(Font.TRUETYPE_FONT, new File("Lancelot-Regular.ttf")).deriveFont(Font.BOLD,40f);
         } catch (FontFormatException | IOException exception) {
             font = new Font("Arial", Font.PLAIN, 12);
         }
 
         setLayout(null);
-        try {                
+        try { 
             logo = ImageIO.read(this.getClass().getResource("logo.png")); // read in the logo
         } catch (IOException ex) {
             // do nothing
@@ -96,75 +94,51 @@ public class Interface extends JPanel {
         puzzleLabel.setBounds(50,180,1000,100);
         add(puzzleLabel);
 
-        // quiInputField, quoiInputField, ouInputField, pourquoiInputField
-        // all text fields
-        quiInputField = new JTextField(); // new textfield
-        quiInputField.setColumns(2); // set its column
-        quiInputField.setFont(font); // set the font to the font we chose
-        quiInputField.setBounds(450, 300, 600, 60); // position and size it
-        quiInputField.setOpaque(false); // make the background opaque (needed for the rounded corners)
-        quiInputField.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // needed for the rounded corners
-        quiInputField.setEditable(false);
-        quiInputField.setFocusable(false);
-        add(quiInputField); // finally, add it to the panel
-        
-        quoiInputField = new JTextField();
-        quoiInputField.setColumns(2);
-        quoiInputField.setFont(font);
-        quoiInputField.setBounds(450, 400, 600, 60);
-        quoiInputField.setOpaque(false);
-        quoiInputField.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        quoiInputField.setEditable(false);
-        quoiInputField.setFocusable(false);
-        add(quoiInputField);
+        quiCombo = createStyledComboBox(); // create a styled dropdown
+        quiCombo.setBounds(450, 300, 600, 70); // set its position
+        add(quiCombo); // add it to the panel
 
-        ouInputField = new JTextField();
-        ouInputField.setColumns(2);
-        ouInputField.setFont(font);
-        ouInputField.setBounds(450, 500, 600, 60);
-        ouInputField.setOpaque(false);
-        ouInputField.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        ouInputField.setEditable(false);
-        ouInputField.setFocusable(false);
-        add(ouInputField);
+        quoiCombo = createStyledComboBox();
+        quoiCombo.setBounds(450, 400, 600, 70);
+        add(quoiCombo);
 
-        pourquoiInputField = new JTextField();
-        pourquoiInputField.setColumns(2);
-        pourquoiInputField.setFont(font);
-        pourquoiInputField.setBounds(450, 600, 600, 60);
-        pourquoiInputField.setOpaque(false);
-        pourquoiInputField.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        pourquoiInputField.setEditable(false);
-        pourquoiInputField.setFocusable(false);
-        add(pourquoiInputField);
+        ouCombo = createStyledComboBox();
+        ouCombo.setBounds(450, 500, 600, 70);
+        add(ouCombo);
+
+        pourquoiCombo = createStyledComboBox();
+        pourquoiCombo.setBounds(450, 600, 600, 70);
+        add(pourquoiCombo);
 
 
         // respective labels // quiLabel, quoiLabel, ouLabel, porquoiLabel
-        quiLabel = new JLabel("Qui?");
+        quiLabel = new JLabel("Qui ?");
         quiLabel.setFont(font.deriveFont(Font.BOLD, 50f));
         quiLabel.setBounds(220,285,1000,100);
         add(quiLabel);
-        quiLabel.setForeground(new Color(quiLabel.getForeground().getRed(), quiLabel.getForeground().getGreen(), quiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
 
-        quoiLabel = new JLabel("Quoi?");
+        quoiLabel = new JLabel("Quoi ?");
         quoiLabel.setFont(font.deriveFont(Font.BOLD, 50f));
         quoiLabel.setBounds(200,385,1000,100);
         add(quoiLabel);
-        quoiLabel.setForeground(new Color(quoiLabel.getForeground().getRed(), quoiLabel.getForeground().getGreen(), quoiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
 
 
-        ouLabel = new JLabel("Oú?");
+        ouLabel = new JLabel("Où ? ");
         ouLabel.setFont(font.deriveFont(Font.BOLD, 50f));
         ouLabel.setBounds(220,485,1000,100);
         add(ouLabel);
-        ouLabel.setForeground(new Color(ouLabel.getForeground().getRed(), ouLabel.getForeground().getGreen(), ouLabel.getForeground().getBlue(), (int)(0.5f * 255)));
 
 
-        porquoiLabel = new JLabel("Pourquoi?");
+        porquoiLabel = new JLabel("Pourquoi ?");
         porquoiLabel.setFont(font.deriveFont(Font.BOLD, 50f));
         porquoiLabel.setBounds(150,585,1000,100);
         add(porquoiLabel);
-        porquoiLabel.setForeground(new Color(porquoiLabel.getForeground().getRed(), porquoiLabel.getForeground().getGreen(), porquoiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
+
+        quiLabel.setForeground(Color.GRAY);
+        quoiLabel.setForeground(Color.GRAY);
+        ouLabel.setForeground(Color.GRAY);
+        porquoiLabel.setForeground(Color.GRAY);
+
 
         // submit button
 
@@ -175,34 +149,64 @@ public class Interface extends JPanel {
         submitButton.setFont(font.deriveFont(Font.BOLD, 50f));
         submitButton.setBounds(1075,650,350,100);
         submitButton.setFocusPainted(false);
-        submitButton.addActionListener(e -> { // action listerner for the submit button
-            resetFields = false;
-           answers[0] = quiInputField.getText(); // set the answers to the answers in the text boxes
-           answers[1] = quoiInputField.getText();
-           answers[2] = ouInputField.getText();
-           answers[3] = pourquoiInputField.getText();
-           correctAnswers = myMain.submitButtonClicked(); // get the correct answers from main
-            repaint(); // repaint the gren and red if right or wrong
+        submitButton.addActionListener(e -> {
+            quiCombo.setBorder(BorderFactory.createEmptyBorder()); // reset their borders
+            quoiCombo.setBorder(BorderFactory.createEmptyBorder());
+            ouCombo.setBorder(BorderFactory.createEmptyBorder());
+            pourquoiCombo.setBorder(BorderFactory.createEmptyBorder());
+
+
+            answers[0] = (String) quiCombo.getSelectedItem(); // get the selected inputs from the dropdowns
+            answers[1] = (String) quoiCombo.getSelectedItem();
+            answers[2] = (String) ouCombo.getSelectedItem();
+            answers[3] = (String) pourquoiCombo.getSelectedItem();
+        
+            correctAnswers = myMain.submitButtonClicked(); // get the correct answers
+
+            // add border colors based on correct/incorrect
+            if (correctAnswers.length > 0) {
+                if (correctAnswers[0]) {
+                    quiCombo.setBorder(BorderFactory.createLineBorder(new Color(0, 180, 0), 4));
+                } else {
+                    quiCombo.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0), 4));
+                }
+            }
+            if (correctAnswers.length > 1) {
+                if (correctAnswers[1]) {
+                    quoiCombo.setBorder(BorderFactory.createLineBorder(new Color(0, 180, 0), 4));
+                } else {
+                    quoiCombo.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0), 4));
+                }
+            }
+            if (correctAnswers.length > 2) {
+                if (correctAnswers[2]) {
+                    ouCombo.setBorder(BorderFactory.createLineBorder(new Color(0, 180, 0), 4));
+                } else {
+                    ouCombo.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0), 4));
+                }
+            }
+            if (correctAnswers.length > 3) {
+                if (correctAnswers[3]) {
+                    pourquoiCombo.setBorder(BorderFactory.createLineBorder(new Color(0, 180, 0), 4));
+                } else {
+                    pourquoiCombo.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0), 4));
+                }
+            }
+
+            // set result message
             if (correctAnswers[0] && correctAnswers[1] && correctAnswers[2]) {
-                if (correctAnswers.length == 3) {
-                    inCorrect.setText("Bravo!");
+                if (correctAnswers.length == 3 || (correctAnswers.length == 4 && correctAnswers[3])) {
+                    inCorrect.setText("Bravo !");
                     inCorrect.setBounds(240,180,1000,100);
                     inCorrect.setVisible(true);
-                    playSound("correct.wav");   
-                } else if (correctAnswers.length == 4) {
-                    if (correctAnswers[3]) {
-                        inCorrect.setText("Bravo!");
-                        inCorrect.setBounds(240,180,1000,100);
-                        inCorrect.setVisible(true);
-                        playSound("correct.wav");   
-                    }
+                    playSound("correct.wav");
                 }
-            } else { // if the answers are not correct...
-                inCorrect.setText("Essayez encore!");
+            } else {
+                inCorrect.setText("Essayez encore !");
                 inCorrect.setBounds(250,180,1000,100);
                 inCorrect.setVisible(true);
             }
-        });
+        });        
         submitButton.addMouseListener(new java.awt.event.MouseAdapter() { // add muouse listener to detect mouse hovering over button
             @Override
             public void mouseEntered(java.awt.event.MouseEvent e) {
@@ -219,83 +223,69 @@ public class Interface extends JPanel {
 
         // submit puzzle number button
         submitPuzzleButton = new JButton("Soumettre");
-        submitPuzzleButton.setFont(font.deriveFont(Font.BOLD, 21f));
+        submitPuzzleButton.setFont(font.deriveFont(Font.BOLD, 27f));
         submitPuzzleButton.setOpaque(false);
         submitPuzzleButton.setContentAreaFilled(false);
         submitPuzzleButton.setBorderPainted(false);
         submitPuzzleButton.setBounds(310,202,150,50);
         submitPuzzleButton.setFocusPainted(false);
-        submitPuzzleButton.addActionListener(e -> { // actiona listerner for submitting a puzzle
-            puzzleNumber = Integer.valueOf(puzzleNumberField.getText());
-            quiInputField.setText("");
-            quoiInputField.setText("");
-            ouInputField.setText("");
-            pourquoiInputField.setText("");
-            resetFields = true;
-            
-            System.out.println("id: "+puzzleNumber);
-            if(puzzleNumber <= 0 || puzzleNumber > 100){
-
-                quiLabel.setForeground(new Color(quiLabel.getForeground().getRed(), quiLabel.getForeground().getGreen(), quiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
-                quiInputField.setEditable(false);
-                quiInputField.setFocusable(false);
-                quiInputField.setText("");
-
-                quoiLabel.setForeground(new Color(quoiLabel.getForeground().getRed(), quoiLabel.getForeground().getGreen(), quoiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
-                quoiInputField.setEditable(false);
-                quoiInputField.setFocusable(false);
-                quoiInputField.setText("");
-
-                ouLabel.setForeground(new Color(ouLabel.getForeground().getRed(), ouLabel.getForeground().getGreen(), ouLabel.getForeground().getBlue(), (int)(0.5f * 255)));
-                ouInputField.setEditable(false);
-                ouInputField.setFocusable(false);
-                ouInputField.setText("");
-
-                porquoiLabel.setForeground(new Color(porquoiLabel.getForeground().getRed(), porquoiLabel.getForeground().getGreen(), porquoiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
-                pourquoiInputField.setEditable(false);
-                pourquoiInputField.setFocusable(false);
-                pourquoiInputField.setText("");
-
-            } else if (puzzleNumber <= 50) { // if the puzzle number is less than 50 disable the porquoi option
-
-                quiLabel.setForeground(new Color(quiLabel.getForeground().getRed(), quiLabel.getForeground().getGreen(), quiLabel.getForeground().getBlue(), (int)(1f * 255)));
-                quiInputField.setEditable(true);
-                quiInputField.setFocusable(true);
-
-                quoiLabel.setForeground(new Color(quoiLabel.getForeground().getRed(), quoiLabel.getForeground().getGreen(), quoiLabel.getForeground().getBlue(), (int)(1f * 255)));
-                quoiInputField.setEditable(true);
-                quoiInputField.setFocusable(true);
-
-                ouLabel.setForeground(new Color(ouLabel.getForeground().getRed(), ouLabel.getForeground().getGreen(), ouLabel.getForeground().getBlue(), (int)(1f * 255)));
-                ouInputField.setEditable(true);
-                ouInputField.setFocusable(true);
-
-                porquoiLabel.setForeground(new Color(porquoiLabel.getForeground().getRed(), porquoiLabel.getForeground().getGreen(), porquoiLabel.getForeground().getBlue(), (int)(0.5f * 255)));
-                pourquoiInputField.setEditable(false);
-                pourquoiInputField.setFocusable(false);
-                pourquoiInputField.setText("");
-
-            } else {
-
-                quiLabel.setForeground(new Color(quiLabel.getForeground().getRed(), quiLabel.getForeground().getGreen(), quiLabel.getForeground().getBlue(), (int)(1f * 255)));
-                quiInputField.setEditable(true);
-                quiInputField.setFocusable(true);
-
-                quoiLabel.setForeground(new Color(quoiLabel.getForeground().getRed(), quoiLabel.getForeground().getGreen(), quoiLabel.getForeground().getBlue(), (int)(1f * 255)));
-                quoiInputField.setEditable(true);
-                quoiInputField.setFocusable(true);
-
-                ouLabel.setForeground(new Color(ouLabel.getForeground().getRed(), ouLabel.getForeground().getGreen(), ouLabel.getForeground().getBlue(), (int)(1f * 255)));
-                ouInputField.setEditable(true);
-                ouInputField.setFocusable(true);
-
-                porquoiLabel.setForeground(new Color(porquoiLabel.getForeground().getRed(), porquoiLabel.getForeground().getGreen(), porquoiLabel.getForeground().getBlue(), (int)(1f * 255)));
-                pourquoiInputField.setEditable(true);
-                pourquoiInputField.setFocusable(true);
-
+        submitPuzzleButton.addActionListener(e -> {
+            String text = puzzleNumberField.getText();
+        
+            try {
+                puzzleNumber = Integer.parseInt(text);
+            } catch (NumberFormatException ex) {
+                // if it's not a number idek
+                return;
             }
+        
+            // Clear previous borders
+            quiCombo.setBorder(BorderFactory.createEmptyBorder());
+            quoiCombo.setBorder(BorderFactory.createEmptyBorder());
+            ouCombo.setBorder(BorderFactory.createEmptyBorder());
+            pourquoiCombo.setBorder(BorderFactory.createEmptyBorder());
+        
+            // Disable everything by default
+            quiCombo.setEnabled(false);
+            quoiCombo.setEnabled(false);
+            ouCombo.setEnabled(false);
+            pourquoiCombo.setEnabled(false);
+        
+            quiLabel.setForeground(Color.GRAY);
+            quoiLabel.setForeground(Color.GRAY);
+            ouLabel.setForeground(Color.GRAY);
+            porquoiLabel.setForeground(Color.GRAY);
+        
+            if (puzzleNumber <= 0 || puzzleNumber > 100) {
+                return; // invalid puzzle number
+            }
+        
+            Puzzle currentPuzzle = Main.givePuzzleData(); // get current puzzle data
+        
+            // shuffle the options
+            setShuffledOptions(quiCombo, currentPuzzle.getOptions("qui"));
+            setShuffledOptions(quoiCombo, currentPuzzle.getOptions("quoi"));
+            setShuffledOptions(ouCombo, currentPuzzle.getOptions("ou"));
+        
+            quiCombo.setEnabled(true);
+            quoiCombo.setEnabled(true);
+            ouCombo.setEnabled(true);
+        
+            quiLabel.setForeground(Color.BLACK);
+            quoiLabel.setForeground(Color.BLACK);
+            ouLabel.setForeground(Color.BLACK);
+        
+            if (puzzleNumber > 50) {
+                setShuffledOptions(pourquoiCombo, currentPuzzle.getOptions("pourquoi"));
+                pourquoiCombo.setEnabled(true);
+                porquoiLabel.setForeground(Color.BLACK);
+            } else {
+                pourquoiCombo.setEnabled(false);
+                porquoiLabel.setForeground(Color.GRAY);
+            }
+        
             repaint();
-        });
+        });        
         add(submitPuzzleButton);
 
         // help button
@@ -353,7 +343,7 @@ public class Interface extends JPanel {
             protected void paintComponent(Graphics g) {
                 Font font;
                 try { // initalize the font we're using
-                    font = Font.createFont(Font.TRUETYPE_FONT, new File("Gluten-VariableFont_slnt,wght.ttf")).deriveFont(Font.BOLD,40f);
+                    font = Font.createFont(Font.TRUETYPE_FONT, new File("Lancelot-Regular.ttf")).deriveFont(Font.BOLD,40f);
                 } catch (FontFormatException | IOException exception) {
                     font = new Font("Arial", Font.PLAIN, 12);
                 }
@@ -372,19 +362,21 @@ public class Interface extends JPanel {
                 if (helpInFrench) { // chagen the language in the menu
                     g2.setColor(Color.BLACK);
                     g2.setFont(font.deriveFont(Font.BOLD, 50f));
-                    g2.drawString("Comment jouer!", 475, 280);
+                    g2.drawString("Comment jouer !", 475, 280);
                     g2.setFont(font.deriveFont(Font.BOLD, 23f));
-                    g2.drawString("• Remplis Qui, Quoi, Où, et peut-être Pourquoi", 470, 360);
-                    g2.drawString("• Clique \"Soumettre\" pour valider tes réponses", 470, 430);
-                    g2.drawString("• Le bouton \"?\" affiche ce menu d'aide", 470, 500);
+                    g2.drawString("• Choisis des réponses dans les menus déroulants pour Qui, Quoi, Où", 470, 360);
+                    g2.drawString("• Si disponible, choisis aussi une réponse pour Pourquoi", 470, 410);
+                    g2.drawString("• Clique sur \"Soumettre\" pour vérifier tes réponses", 470, 460);
+                    g2.drawString("• Le bouton \"?\" ouvre ou ferme ce menu d'aide", 470, 510);                    
                 } else {
                     g2.setColor(Color.BLACK);
                     g2.setFont(font.deriveFont(Font.BOLD, 50f));
                     g2.drawString("Help!", 480, 280);
                     g2.setFont(font.deriveFont(Font.BOLD, 23f));
-                    g2.drawString("• Fill out Qui, Quoi, Où, and maybe Pourquoi", 470, 360);
-                    g2.drawString("• Click \"Soumettre\" to submit your answers", 470, 430);
-                    g2.drawString("• The \"?\" button opens this help menu", 470, 500);
+                    g2.drawString("• Select answers from the dropdowns for Qui, Quoi, Où", 470, 360);
+                    g2.drawString("• If available, also select Pourquoi", 470, 410);
+                    g2.drawString("• Click \"Soumettre\" to check your answers", 470, 460);
+                    g2.drawString("• Use the \"?\" button to view or close this help menu", 470, 510);
                 }
             }
         };
@@ -413,7 +405,6 @@ public class Interface extends JPanel {
     
     public void paintComponent(Graphics g) {
          java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
-         Graphics2D g2d = (Graphics2D) g;
 
          // background
 
@@ -428,12 +419,6 @@ public class Interface extends JPanel {
          drawRoundedBox(g2, puzzleNumberField, new Color(232, 232, 232), 0);
          g2.fillRoundRect(submitPuzzleButton.getX(),submitPuzzleButton.getY(), submitPuzzleButton.getWidth(), submitPuzzleButton.getHeight(),50,50);
          
-         // draw the rounided boxes around the input fields
-         drawRoundedBox(g2, quiInputField, new Color(232, 232, 232), 1);
-         drawRoundedBox(g2, quoiInputField, new Color(232, 232, 232), 2);
-         drawRoundedBox(g2, ouInputField, new Color(232, 232, 232), 3);
-         drawRoundedBox(g2, pourquoiInputField, new Color(232, 232, 232), 4);    
-
          // help button
          g2.setColor(new Color(0, 0, 0));
          g2.fillOval(helpButton.getX()-3,helpButton.getY()-13,106,106);
@@ -453,16 +438,6 @@ public class Interface extends JPanel {
             g2.setColor(new Color(210, 210, 210));
          }
          g2.fillRoundRect(submitButton.getX(), submitButton.getY(), submitButton.getWidth(), submitButton.getHeight(), 50,50); // submit button
-
-         if (resetFields) {
-            answers = new String[4];
-            inCorrect.setVisible(false);
-            drawRoundedBox(g2, quiInputField, new Color(232, 232, 232), 1);
-            drawRoundedBox(g2, quoiInputField, new Color(232, 232, 232), 2);
-            drawRoundedBox(g2, ouInputField, new Color(232, 232, 232), 3);
-            drawRoundedBox(g2, pourquoiInputField, new Color(232, 232, 232), 4);
-            // resetFields = false;
-         }
     }
 
     private void drawRoundedBox(Graphics2D g, JTextField textField, Color color, int isAnswerField) {
@@ -475,25 +450,17 @@ public class Interface extends JPanel {
         g.setColor(new Color(0 , 0, 0));
         g.setColor(color);
         g.fillRoundRect(x, y, width, height, degrees, degrees);
-
-        if (isAnswerField > 0 && !resetFields) { // for coloring the boxes based on answers, isAnswerField detects 1. if it's an answer field that's haivng a draw Rounded box 2. which answer field it is depending on its number
-            if (correctAnswers != null && isAnswerField - 1 < correctAnswers.length) { // for porqoui stuff yk
-                if (correctAnswers[isAnswerField - 1]) { // if correct green
-                    g.setColor(new Color(147,197,114));
-                } else { // if not, red!
-                    g.setColor(new Color(205,92,92));
-                }
-            } else { // and if it's null (not checked yet) jus tgray
-                g.setColor(Color.GRAY);
-            }
-        } else {
-            g.setColor(Color.GRAY);
-        }                
+        g.setColor(Color.GRAY);            
         g.drawRoundRect(x, y, width, height, degrees, degrees);
     }
 
-    public String[] userAnswers() { // take a wild guess at what this does
-        return answers;
+    public String[] userAnswers() { // get the selected choices
+        String[] result = new String[4];
+        result[0] = (String) quiCombo.getSelectedItem();
+        result[1] = (String) quoiCombo.getSelectedItem();
+        result[2] = (String) ouCombo.getSelectedItem();
+        result[3] = (String) pourquoiCombo.getSelectedItem();
+        return result;
     }
 
     public int getPuzzle() { // take another wild guess at what this does
@@ -509,6 +476,54 @@ public class Interface extends JPanel {
             clip.start();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private JComboBox<String> createStyledComboBox() {
+        JComboBox<String> box = new JComboBox<String>(); // create a new JComboBox (a dropdown menu)
+    
+        box.setFont(font.deriveFont(40f)); // set font size
+        box.setRenderer(new DefaultListCellRenderer() { // set a custom renderer to style each item in the dropdown list
+            @Override // super weird process for overriding the redering of the dropdown menu
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                // get the default rendering for this list cell
+                JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                label.setPreferredSize(new Dimension(600, 60)); // make each dropdown item taller and use a larger font
+                label.setFont(font.deriveFont(40f));
+                return label;
+            }
+        });
+    
+        // override the arrow button (on the right side of the combo box) to make it taller (idk why they make it thsi complicated)
+        box.setUI(new javax.swing.plaf.basic.BasicComboBoxUI() {
+            @Override
+            protected JButton createArrowButton() {
+                JButton button = super.createArrowButton();
+                button.setPreferredSize(new Dimension(40, 70)); // make it taller!!
+                return button;
+            }
+        });
+    
+        box.setPreferredSize(new Dimension(600, 70));
+        box.setMaximumRowCount(5); // limit dropdown height (just in case)
+        box.setEnabled(false); // initially disable it until it is enabled by entering a puzzle number
+        return box;
+    } 
+
+    private void setShuffledOptions(JComboBox<String> comboBox, String[] options) { // shuffle the options in the dropdown so the correct answer isn't alwyas the first
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < options.length; i++) {
+            list.add(options[i]);
+        }
+    
+        Collections.shuffle(list); // shuffle the answer chocies
+    
+        comboBox.removeAllItems(); // remove all the items and now readd them
+
+        comboBox.addItem(""); // add a dummy option
+
+        for (int i = 0; i < list.size(); i++) {
+            comboBox.addItem(list.get(i));
         }
     }
 }
