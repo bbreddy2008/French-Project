@@ -1,6 +1,5 @@
-import java.util.*;
 import java.io.*;
-import java.awt.*;
+import java.util.*;
 
 //The main program that activates all the programs
 public class Main {
@@ -161,6 +160,6 @@ public class Main {
 
 	//Returns current puzzle data
 	public static Puzzle givePuzzleData(){
-		return puzzles[myInterface.getPuzzle()];
+		return puzzles[myInterface.getPuzzle() - 1];
 	}
 }
