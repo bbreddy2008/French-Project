@@ -64,7 +64,7 @@ public class Interface extends JPanel {
         f = new JFrame();; // choose to add title, i prefer not but whatever
 
         try { // initalize the font we're using
-        font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Lancelot-Regular.ttf")).deriveFont(Font.BOLD,40f);
+        font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/KhensinDemo-2OWjX.ttf")).deriveFont(Font.BOLD,40f);
         } catch (FontFormatException | IOException exception) {
             font = new Font("Arial", Font.PLAIN, 12);
         }
@@ -494,7 +494,7 @@ public class Interface extends JPanel {
             protected void paintComponent(Graphics g) {
                 Font font;
                 try { // initalize the font we're using
-                font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Lancelot-Regular.ttf")).deriveFont(Font.BOLD,40f);
+                font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/KhensinDemo-2OWjX.ttf")).deriveFont(Font.BOLD,40f);
                 } catch (FontFormatException | IOException exception) {
                     font = new Font("Arial", Font.PLAIN, 12);
                 }
