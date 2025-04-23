@@ -164,3 +164,4 @@ public class Main {
 		return puzzles[myInterface.getPuzzle()];
 	}
 }
+
