@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.*;
 
 public class Puzzle {
@@ -69,13 +68,29 @@ public class Puzzle {
         }
     }
 
-    //All options
-    public String[] getOptions(String[] array){
-        String[] options = new String[array.length];
-        for (int i = 0; i < array.length; i++) {
-            options[i] = array[i];
+    public String[] getOptions(String type) { // returns the options for a given type
+        // if the type is qui return the qui array
+        // if the type is quoi return the quoi array
+        // if the type is ou return the ou array
+        // if the type is pourquoi return the pourquoi array
+        // if the type is none of these return an empty array
+        if (type.toLowerCase().equals("qui")) {
+            return Arrays.copyOf(qui, qui.length);
         }
-        return options;
+        if (type.toLowerCase().equals("quoi")) {
+            return Arrays.copyOf(quoi, quoi.length);
+        }
+        if (type.toLowerCase().equals("ou")) {
+            return Arrays.copyOf(ou, ou.length);
+        }
+        if (type.toLowerCase().equals("pourquoi")) {
+            if (pourquoi != null) {
+                return Arrays.copyOf(pourquoi, pourquoi.length);
+            } else {
+                return new String[0];
+            }
+        }
+        return new String[0];
     }
 
     //prints all the correct puzzle answers; all located at index 1
