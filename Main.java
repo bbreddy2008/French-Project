@@ -9,7 +9,6 @@ public class Main {
 
 	//The interface of the program that adds usability
 	private static Interface myInterface;
-	private static Scanner scanner = new Scanner(System.in);
 
 	//Begins the program
     public static void main(String[] args) {
@@ -74,7 +73,7 @@ public class Main {
 		Scanner in = new Scanner(inputStream);
 
 		//Skips the first line since its just allignment information
-		String skip = in.nextLine();
+		in.nextLine();
 
 		//Used to determine puzzle number
 		int counter = 1;
@@ -85,22 +84,12 @@ public class Main {
 			//For puzzle number 50 or lower
 			if (counter <= 50){
 
-				//Creates, reads, and splits up a 3 by 3 2D array with answers at the top
+				// Creates, reads, and splits up a 3 by 3 2D array with answers at the top
 				String[][] storedValue = new String[3][3];
+				in.nextLine(); // skips extra space
 
-				String lineA = in.nextLine();
-				String lineB = in.nextLine();
-				String lineC = in.nextLine();
-
-				String[] splitLineA = lineA.split(",");
-				String[] splitLineB = lineB.split(",");
-				String[] splitLineC = lineC.split(",");
-
-				//Stores the inputs into the 2d Array
-				for(int i = 0; i < storedValue.length; i++){
-					storedValue[0][i] = splitLineA[i + 1];
-					storedValue[1][i] = splitLineB[i];
-					storedValue[2][i] = splitLineC[i];
+				for (int i = 0; i < storedValue.length; i++) {
+						storedValue[i] = in.nextLine().split(",");
 				}
 
 				//Sends the input 2D array and the puzzle number to make a new puzzle, then stores it in the array
@@ -115,25 +104,12 @@ public class Main {
 
 				//Creates, reads, and splits up a 4 by 4 2D array with answers at the top
 				String[][] storedValue = new String[4][4];
+				in.nextLine(); // skips extra space
 
-				String lineA = in.nextLine();
-				String lineB = in.nextLine();
-				String lineC = in.nextLine();
-				String lineD = in.nextLine();
-
-				String[] splitLineA = lineA.split(",");
-				String[] splitLineB = lineB.split(",");
-				String[] splitLineC = lineC.split(",");
-				String[] splitLineD = lineD.split(",");
-
-				//Stores the inputs into the 2d Array
-				for(int i = 0; i < storedValue.length; i++){
-					storedValue[0][i] = splitLineA[i + 1];
-					storedValue[1][i] = splitLineB[i];
-					storedValue[2][i] = splitLineC[i];
-					storedValue[3][i] = splitLineD[i];
+				for (int i = 0; i < storedValue.length; i++) {
+						storedValue[i] = in.nextLine().split(",");
 				}
-
+				
 				//Sends the input 2D array and the puzzle number to make a new puzzle, then stores it in the array			
 				Puzzle puzz = new Puzzle(counter, storedValue);
 				puzzles[counter-1] = puzz;
