@@ -86,7 +86,7 @@ public class Main {
 
 				// Creates, reads, and splits up a 3 by 3 2D array with answers at the top
 				String[][] storedValue = new String[3][3];
-				in.nextLine();
+				in.nextLine(); // skips extra space
 
 				for (int i = 0; i < storedValue.length; i++) {
 						storedValue[i] = in.nextLine().split(",");
@@ -104,7 +104,7 @@ public class Main {
 
 				//Creates, reads, and splits up a 4 by 4 2D array with answers at the top
 				String[][] storedValue = new String[4][4];
-				in.nextLine();
+				in.nextLine(); // skips extra space
 
 				for (int i = 0; i < storedValue.length; i++) {
 						storedValue[i] = in.nextLine().split(",");
