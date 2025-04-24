@@ -9,7 +9,6 @@ public class Main {
 
 	//The interface of the program that adds usability
 	private static Interface myInterface;
-	private static Scanner scanner = new Scanner(System.in);
 
 	//Begins the program
     public static void main(String[] args) {
@@ -87,14 +86,10 @@ public class Main {
 
 				// Creates, reads, and splits up a 3 by 3 2D array with answers at the top
 				String[][] storedValue = new String[3][3];
+				in.nextLine();
 
-				String[][] lines = {in.nextLine().split(","), in.nextLine().split(","), in.nextLine().split(",")};
-
-				//Stores the inputs into the 2d Array
-				for(int i = 0; i < storedValue.length; i++){
-					storedValue[0][i] = lines[0][i + 1];
-					storedValue[1][i] = lines[1][i];
-					storedValue[2][i] = lines[2][i];
+				for (int i = 0; i < storedValue.length; i++) {
+						storedValue[i] = in.nextLine().split(",");
 				}
 
 				//Sends the input 2D array and the puzzle number to make a new puzzle, then stores it in the array
@@ -109,17 +104,12 @@ public class Main {
 
 				//Creates, reads, and splits up a 4 by 4 2D array with answers at the top
 				String[][] storedValue = new String[4][4];
+				in.nextLine();
 
-				String[][] lines = {in.nextLine().split(","), in.nextLine().split(","), in.nextLine().split(","),in.nextLine().split(",") };
-
-				//Stores the inputs into the 2d Array
-				for(int i = 0; i < storedValue.length; i++){
-					storedValue[0][i] = lines[0][i + 1];
-					storedValue[1][i] = lines[1][i];
-					storedValue[2][i] = lines[2][i];
-					storedValue[3][i] = lines[3][i];
+				for (int i = 0; i < storedValue.length; i++) {
+						storedValue[i] = in.nextLine().split(",");
 				}
-
+				
 				//Sends the input 2D array and the puzzle number to make a new puzzle, then stores it in the array			
 				Puzzle puzz = new Puzzle(counter, storedValue);
 				puzzles[counter-1] = puzz;
