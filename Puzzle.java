@@ -4,12 +4,6 @@ public class Puzzle {
     //puzzle id number
     private int id;
     
-    //Strings of each asnwer type 
-    private String qui_answer;
-    private String quoi_answer;
-    private String ou_answer;
-    private String pourquoi_answer;
-    
     //arrays to hold each type of answer
     private String[] qui;
     private String[] quoi;
@@ -56,7 +50,7 @@ public class Puzzle {
         return id;
     }
 
-    // Only the first value
+    // only the first value
     // returns the correct answers for checking
     public String[] getCorrect(){
         if (id <= 50){
@@ -69,11 +63,6 @@ public class Puzzle {
     }
 
     public String[] getOptions(String type) { // returns the options for a given type
-        // if the type is qui return the qui array
-        // if the type is quoi return the quoi array
-        // if the type is ou return the ou array
-        // if the type is pourquoi return the pourquoi array
-        // if the type is none of these return an empty array
         if (type.toLowerCase().equals("qui")) {
             return Arrays.copyOf(qui, qui.length);
         }
@@ -90,10 +79,10 @@ public class Puzzle {
                 return new String[0];
             }
         }
-        return new String[0];
+        return new String[0]; // returns empty array of options
     }
 
-    //prints all the correct puzzle answers; all located at index 1
+    // prints all the correct puzzle answers; all located at index 1
     public String print(){
         return qui[1] + " " + quoi[1] + " " + ou[1] + " " + pourquoi[1];
     }
