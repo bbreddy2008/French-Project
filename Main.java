@@ -23,43 +23,33 @@ public class Main {
 	}
 
 		//Returned to Interface. Return values determine Green or Red coloring for rounded boxes.
-	public static boolean[] checkAnswers(){
+	public static boolean[] checkAnswers(){ // * Move to Interface *
 
 		//Array of booleans to determine which input is true
 		boolean[] yOrN;
 
 		//Gets the current puzzle
 		int pez = myInterface.getPuzzle()-1;
+		int sizing;
 
 		//If the current puzzle is 50 or lower, it checks for 3 answers
 		if (pez < 50){
-			yOrN = new boolean[3];
-
-			for (int i = 0; i < 3; i++) {
-
-				//If the answer in the input box is the same as the answer stored in the puzzle object, Return True
-				if (myInterface.userAnswers()[i].equalsIgnoreCase(puzzles[pez].getCorrect()[i])) {
-					yOrN[i] = true;
-
-					//Otherwise return false
-				} else {
-					yOrN[i] = false;
-				}
-			}
+			sizing = 3;
 		//If the current puzzle is 51 or higher, it checks for 4 answers
 		} else {
-			yOrN = new boolean[4];
+			sizing = 4;
+		}
+		yOrN = new boolean[sizing];
 
-			for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < sizing; i++) {
 
-				//If the answer in the input box is the same as the answer stored in the puzzle object, Return True
-				if (myInterface.userAnswers()[i].equalsIgnoreCase(puzzles[pez].getCorrect()[i])) {
-					yOrN[i] = true;
+			//If the answer in the input box is the same as the answer stored in the puzzle object, Return True
+			if (myInterface.userAnswers()[i].equalsIgnoreCase(puzzles[pez].getCorrect()[i])) {
+				yOrN[i] = true;
 
-					//Otherwise return false
-				} else {
-					yOrN[i] = false;
-				}
+				//Otherwise return false
+			} else {
+				yOrN[i] = false;
 			}
 		}
 		return yOrN;
@@ -124,7 +114,7 @@ public class Main {
     }
 
 	//If the Interface submit button is cliced, then it activates check answers
-	public static boolean[] submitButtonClicked() {
+	public static boolean[] submitButtonClicked() { // * Move to Interface *
 		return checkAnswers();
 	}
 
