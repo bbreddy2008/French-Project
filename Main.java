@@ -125,8 +125,6 @@ public class Main {
 
 	//If the Interface submit button is cliced, then it activates check answers
 	public static boolean[] submitButtonClicked() {
-		System.out.println("Submit button clicked!");
-		System.out.println(myInterface.getPuzzle());
 		return checkAnswers();
 	}
 

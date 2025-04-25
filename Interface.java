@@ -404,6 +404,7 @@ public class Interface extends JPanel {
         
             try {
                 puzzleNumber = Integer.parseInt(text);
+                inCorrect.setText(" ");
             } catch (NumberFormatException ex) {
                 // ignore the invalid input
                 return;
