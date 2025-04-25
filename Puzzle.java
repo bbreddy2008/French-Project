@@ -13,35 +13,33 @@ public class Puzzle {
     //constructor for a puzzle 
     public Puzzle(int numb, String[][] arrays){  
         id = numb;
-        //if the id number is less than 50...
-        if (id <= 50){ // creates arrays of size 3
-            qui = new String[3];
-            quoi = new String[3];
-            ou = new String[3];
-
-            // fills array with answers
-            for (int i = 0; i < 3; i++){
-                qui[i] = arrays[i][0];
-                quoi[i] = arrays[i][1];
-                ou[i] = arrays[i][2];
-            }
-
-        } else { //if the id number is 51 and above 
-            // creates array of size 4
-            qui = new String[4];
-            quoi = new String[4];
-            ou = new String[4];
-            pourquoi = new String[4];
-
-            // fills array with answers
-            for (int i = 0; i < 4; i++){
-                qui[i] = arrays[i][0];
-                quoi[i] = arrays[i][1];
-                ou[i] = arrays[i][2];
+        int size;
+        // sets size of array dependent on id
+        if (id <= 50){ 
+            size = 3;
+        }  
+        else {
+            size = 4;
+        }
+        
+       // creates question arrays
+        qui = new String[size];
+        quoi = new String[size];
+        ou = new String[size];
+        
+       // creates pourquoi only if size is 4
+        if (size == 4) {
+            pourquoi = new String[size];
+        }
+            
+        // fills arrays with question arrays
+        for (int i = 0; i < size; i++) {
+            qui[i]= arrays[i][0];
+            quoi[i] = arrays[i][1];
+            ou[i] = arrays[i][2];
+            if (size == 4) {
                 pourquoi[i] = arrays[i][3];
             }
-
-
         }
     }
 
