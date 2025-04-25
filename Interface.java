@@ -28,32 +28,19 @@ public class Interface extends JPanel {
     //JComponent 
     private JComponent glassPane;
 
-    //Logo and JLabel for logo panel 
-    private BufferedImage logo; 
-    private final JLabel logoPanel; 
+    private BufferedImage logo; // logo
+    private final JLabel logoPanel; // logo panel
 
-    //puzzle number labels 
-    private final JTextField puzzleNumberField; 
-    private final JLabel puzzleLabel; 
-    //qui label
-    private final JLabel quiLabel; 
-    //quoi label
-    private final JLabel quoiLabel; 
-    //ou label
-    private final JLabel ouLabel; 
-    //porquoi label
-    private final JLabel porquoiLabel; 
+    private final JTextField puzzleNumberField; // quiTextField
+    private final JLabel puzzleLabel, quiLabel, quoiLabel, ouLabel, porquoiLabel; // all the labels being used
 
-    //submit button 
-    private final JButton submitButton; 
-    private boolean isHovering = false; //if mouse is hovering 
-    //array of answers 
-    private String[] answers = new String[4];
+    private final JButton submitButton; // submit button
+    private boolean isHovering = false; // see if mouse is hovering over submit button
+    private String[] answers = new String[4]; // the answers given from the text fields
     
-    //help button
-    private final JButton helpButton; 
-    private boolean isHoveringHelp; //if mouse is hovering 
-    private boolean inHelpMenu = false; //if the help menu should be open
+    private final JButton helpButton; // help button!
+    private boolean isHoveringHelp; // hovering the help button
+    private boolean inHelpMenu = false; // if the help menu should be open
 
     //submit puzzle id number
     private final JButton submitPuzzleButton; 
@@ -71,16 +58,13 @@ public class Interface extends JPanel {
     //french default
     private boolean helpInFrench = true; 
 
-    //the four drop downs 
-    private final JComboBox<String> quiCombo;
-    private final JComboBox<String> quoiCombo;
-    private final JComboBox<String> ouCombo;
-    private final JComboBox<String> pourquoiCombo;
+    // the four drop downs (called comboboxes for sm reason)
+
+    private final JComboBox<String> quiCombo, quoiCombo, ouCombo, pourquoiCombo; // all the dropdowns (combo boxes)
 
     //interface class
     public Interface() {
-        //creating JFrame 
-        f = new JFrame();
+        f = new JFrame(); // choose to add title, i prefer not but whatever
 
         try { //intializes font 
         font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/ELEGANT TYPEWRITER Bold.ttf")).deriveFont(Font.BOLD,40f);
@@ -300,51 +284,24 @@ public class Interface extends JPanel {
     
     //creating labels
     private void createLabels() {
-
-        //qui label
-        quiLabel.setFont(font.deriveFont(Font.BOLD, 50f));
-        quiLabel.setBounds(220,285,1000,100);
-        add(quiLabel);
-
-        //quoi label
-        quoiLabel.setFont(font.deriveFont(Font.BOLD, 50f));
-        quoiLabel.setBounds(200,385,1000,100);
-        add(quoiLabel);
-
-        //ou label
-        ouLabel.setFont(font.deriveFont(Font.BOLD, 50f));
-        ouLabel.setBounds(220,485,1000,100);
-        add(ouLabel);
-
-        //porquoi label
-        porquoiLabel.setFont(font.deriveFont(Font.BOLD, 50f));
-        porquoiLabel.setBounds(150,585,1000,100);
-        add(porquoiLabel);
-
-        //sets color 
-        quiLabel.setForeground(Color.GRAY);
-        quoiLabel.setForeground(Color.GRAY);
-        ouLabel.setForeground(Color.GRAY);
-        porquoiLabel.setForeground(Color.GRAY);
+        JLabel[] labels = {quiLabel, quoiLabel, ouLabel, porquoiLabel};
+        int[] yPos = {285, 385, 485, 585};
+        for (int i = 0; i < labels.length; i++) {
+            labels[i].setFont(font.deriveFont(Font.BOLD, 50f));
+            labels[i].setBounds(220,yPos[i],1000,100);
+            labels[i].setForeground(Color.GRAY);
+            add(labels[i]);
+        }
     }
 
     //creates downdowns
     private void createDropdowns() {
-        //qui dropdown
-        quiCombo.setBounds(450, 300, 600, 70); 
-        add(quiCombo); 
-
-        //quoi dropdown
-        quoiCombo.setBounds(450, 400, 600, 70);
-        add(quoiCombo);
-
-        //ou dropdown
-        ouCombo.setBounds(450, 500, 600, 70);
-        add(ouCombo);
-
-        //porquoi dropdown
-        pourquoiCombo.setBounds(450, 600, 600, 70);
-        add(pourquoiCombo);
+        JComboBox[] boxes = {quiCombo, quoiCombo, ouCombo, pourquoiCombo};
+        int[] yPos = {300, 400, 500, 600};
+        for (int i = 0; i<4; i++) {
+            boxes[i].setBounds(450, yPos[i], 600, 70);
+            add(boxes[i]);
+        }
     }
 
     //creates submit button
@@ -371,33 +328,15 @@ public class Interface extends JPanel {
             //gets correct answer
             correctAnswers = mainObject.submitButtonClicked(); 
 
-            //add border colors based on correct/incorrect
-            if (correctAnswers.length > 0) {
-                if (correctAnswers[0]) {
-                    quiCombo.setBorder(BorderFactory.createLineBorder(new Color(0, 180, 0), 6));
-                } else {
-                    quiCombo.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0), 6));
-                }
-            }
-            if (correctAnswers.length > 1) {
-                if (correctAnswers[1]) {
-                    quoiCombo.setBorder(BorderFactory.createLineBorder(new Color(0, 180, 0), 6));
-                } else {
-                    quoiCombo.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0), 6));
-                }
-            }
-            if (correctAnswers.length > 2) {
-                if (correctAnswers[2]) {
-                    ouCombo.setBorder(BorderFactory.createLineBorder(new Color(0, 180, 0), 6));
-                } else {
-                    ouCombo.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0),6));
-                }
-            }
-            if (correctAnswers.length > 3) {
-                if (correctAnswers[3]) {
-                    pourquoiCombo.setBorder(BorderFactory.createLineBorder(new Color(0, 180, 0), 6));
-                } else {
-                    pourquoiCombo.setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0), 6));
+            // add border colors based on correct/incorrect
+            JComboBox[] boxes = {quiCombo, quoiCombo, ouCombo, pourquoiCombo};
+            for (int i = 0; i<4; i++) {
+                if (correctAnswers.length > i) {
+                    if (correctAnswers[i]) {
+                        boxes[i].setBorder(BorderFactory.createLineBorder(new Color(0, 180, 0), 6));
+                    } else {
+                        boxes[i].setBorder(BorderFactory.createLineBorder(new Color(200, 0, 0),6));
+                    }
                 }
             }
 
@@ -451,23 +390,13 @@ public class Interface extends JPanel {
                 return;
             }
         
-            // Clear previous borders
-            quiCombo.setBorder(BorderFactory.createEmptyBorder());
-            quoiCombo.setBorder(BorderFactory.createEmptyBorder());
-            ouCombo.setBorder(BorderFactory.createEmptyBorder());
-            pourquoiCombo.setBorder(BorderFactory.createEmptyBorder());
-        
-            // Disable everything by default
-            quiCombo.setEnabled(false);
-            quoiCombo.setEnabled(false);
-            ouCombo.setEnabled(false);
-            pourquoiCombo.setEnabled(false);
-        
-            //setting foreground for answer labels
-            quiLabel.setForeground(Color.GRAY);
-            quoiLabel.setForeground(Color.GRAY);
-            ouLabel.setForeground(Color.GRAY);
-            porquoiLabel.setForeground(Color.GRAY);
+            // reset everything
+            JComboBox[] boxes = {quiCombo, quoiCombo, ouCombo, pourquoiCombo};
+            for (int i = 0; i<4; i++) {
+                boxes[i].setBorder(BorderFactory.createEmptyBorder());
+                boxes[i].setEnabled(false);
+                boxes[i].setForeground(Color.GRAY);
+            }
         
             if (puzzleNumber <= 0 || puzzleNumber > 100) {
                 return; //invalid puzzle number
@@ -481,15 +410,10 @@ public class Interface extends JPanel {
             shuffleOptions(quoiCombo, currentPuzzle.getOptions("quoi"));
             shuffleOptions(ouCombo, currentPuzzle.getOptions("ou"));
         
-            //sets as true
-            quiCombo.setEnabled(true);
-            quoiCombo.setEnabled(true);
-            ouCombo.setEnabled(true);
-        
-            //sets foreground as black
-            quiLabel.setForeground(Color.BLACK);
-            quoiLabel.setForeground(Color.BLACK);
-            ouLabel.setForeground(Color.BLACK);
+            for (int i = 0; i<3; i++) {
+                boxes[i].setEnabled(true);
+                boxes[i].setForeground(Color.BLACK);
+            }
         
             //if puzzle greater than 50, print porquoi
             if (puzzleNumber > 50) {
