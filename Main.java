@@ -29,10 +29,10 @@ public class Main {
 		boolean[] yOrN;
 
 		//Gets the current puzzle
-		int pez = myInterface.getPuzzle() - 1;
+		int pez = myInterface.getPuzzle()-1;
 
 		//If the current puzzle is 50 or lower, it checks for 3 answers
-		if (pez <= 50){
+		if (pez < 50){
 			yOrN = new boolean[3];
 
 			for (int i = 0; i < 3; i++) {
@@ -126,6 +126,7 @@ public class Main {
 	//If the Interface submit button is cliced, then it activates check answers
 	public static boolean[] submitButtonClicked() {
 		System.out.println("Submit button clicked!");
+		System.out.println(myInterface.getPuzzle());
 		return checkAnswers();
 	}
 
