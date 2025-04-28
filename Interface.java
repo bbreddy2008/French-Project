@@ -392,10 +392,12 @@ public class Interface extends JPanel {
         
             // reset everything
             JComboBox[] boxes = {quiCombo, quoiCombo, ouCombo, pourquoiCombo};
+            JLabel[] reColorLabels = {quiLabel, quoiLabel, ouLabel, porquoiLabel};
             for (int i = 0; i<4; i++) {
                 boxes[i].setBorder(BorderFactory.createEmptyBorder());
                 boxes[i].setEnabled(false);
                 boxes[i].setForeground(Color.GRAY);
+                reColorLabels[i].setForeground(Color.GRAY);
             }
         
             if (puzzleNumber <= 0 || puzzleNumber > 100) {
@@ -413,8 +415,9 @@ public class Interface extends JPanel {
             for (int i = 0; i<3; i++) {
                 boxes[i].setEnabled(true);
                 boxes[i].setForeground(Color.BLACK);
+                reColorLabels[i].setForeground(Color.BLACK);
             }
-        
+
             //if puzzle greater than 50, print porquoi
             if (puzzleNumber > 50) {
                 shuffleOptions(pourquoiCombo, currentPuzzle.getOptions("pourquoi"));
