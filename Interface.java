@@ -87,7 +87,7 @@ public class Interface extends JPanel {
         //puzzle number 
         puzzleNumberField = new JTextField(); //new text field
         puzzleNumberField.setColumns(2);
-        puzzleNumberField.setBounds(220, 205, 70, 50); //positioning and stuff
+        puzzleNumberField.setBounds(240, 205, 70, 50); //positioning and stuff
         puzzleNumberField.setFont(font);
         puzzleNumberField.setOpaque(false);
         puzzleNumberField.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); //hitbox/border
@@ -288,7 +288,7 @@ public class Interface extends JPanel {
         int[] yPos = {285, 385, 485, 585};
         for (int i = 0; i < labels.length; i++) {
             labels[i].setFont(font.deriveFont(Font.BOLD, 50f));
-            labels[i].setBounds(220,yPos[i],1000,100);
+            labels[i].setBounds(120,yPos[i],1000,100);
             labels[i].setForeground(Color.GRAY);
             add(labels[i]);
         }
@@ -299,7 +299,7 @@ public class Interface extends JPanel {
         JComboBox[] boxes = {quiCombo, quoiCombo, ouCombo, pourquoiCombo};
         int[] yPos = {300, 400, 500, 600};
         for (int i = 0; i<4; i++) {
-            boxes[i].setBounds(450, yPos[i], 600, 70);
+            boxes[i].setBounds(400, yPos[i], 650, 70);
             add(boxes[i]);
         }
     }
@@ -378,7 +378,7 @@ public class Interface extends JPanel {
         submitPuzzleButton.setOpaque(false);
         submitPuzzleButton.setContentAreaFilled(false);
         submitPuzzleButton.setBorderPainted(false);
-        submitPuzzleButton.setBounds(310,202,150,50);
+        submitPuzzleButton.setBounds(340,202,180,50);
         submitPuzzleButton.setFocusPainted(false);
         submitPuzzleButton.addActionListener(e -> {
             String text = puzzleNumberField.getText();
@@ -440,7 +440,7 @@ public class Interface extends JPanel {
         helpButton.setContentAreaFilled(false);
         helpButton.setBorderPainted(false);
         helpButton.setFont(font.deriveFont(Font.BOLD, 100f));
-        helpButton.setBounds(1300,50,100,100);
+        helpButton.setBounds(1300,50,100,80);
         helpButton.setFocusPainted(false);
 
         //action listener
