@@ -44,6 +44,7 @@ public class Interface extends JPanel {
 
     //submit puzzle id number
     private final JButton submitPuzzleButton; 
+    private boolean isHoveringPuzzle = false;
     private int puzzleNumber; //int puzzle id 
 
     //storing correct answers as boolean
@@ -87,7 +88,7 @@ public class Interface extends JPanel {
         //puzzle number 
         puzzleNumberField = new JTextField(); //new text field
         puzzleNumberField.setColumns(2);
-        puzzleNumberField.setBounds(240, 205, 70, 50); //positioning and stuff
+        puzzleNumberField.setBounds(240, 205, 90, 50); //positioning and stuff
         puzzleNumberField.setFont(font);
         puzzleNumberField.setOpaque(false);
         puzzleNumberField.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); //hitbox/border
@@ -96,7 +97,7 @@ public class Interface extends JPanel {
         //creates puzzle label 
         puzzleLabel = new JLabel("Puzzle:");
         puzzleLabel.setFont(font.deriveFont(Font.BOLD, 50f));
-        puzzleLabel.setBounds(50,180,1000,100);
+        puzzleLabel.setBounds(50,175,1000,100);
         //adds to frame
         add(puzzleLabel);
 
@@ -163,7 +164,7 @@ public class Interface extends JPanel {
          g2.setStroke(new BasicStroke(2));
 
          //draw the rounded box around the inptut puzzle number 
-         drawRoundedTextBox(g2, puzzleNumberField, new Color(232, 232, 232), 0);
+         drawRoundedTextBox(g2, puzzleNumberField, new Color(210, 210, 210), 0);
          g2.fillRoundRect(submitPuzzleButton.getX(),submitPuzzleButton.getY(), submitPuzzleButton.getWidth(), submitPuzzleButton.getHeight(),50,50);
          
          //help button
@@ -185,6 +186,16 @@ public class Interface extends JPanel {
             g2.setColor(new Color(210, 210, 210));
          }
          g2.fillRoundRect(submitButton.getX(), submitButton.getY(), submitButton.getWidth(), submitButton.getHeight(), 50,50); // submit button
+
+         
+         g2.setColor(Color.BLACK);
+         g2.fillRoundRect(submitPuzzleButton.getX()-2, submitPuzzleButton.getY()-2, submitPuzzleButton.getWidth()+4, submitPuzzleButton.getHeight()+4, 50,50);
+         if (!isHoveringPuzzle) { // if the mouse is hovering over it
+            g2.setColor(new Color(232,232,232));
+         } else {
+            g2.setColor(new Color(210, 210, 210));
+         }
+         g2.fillRoundRect(submitPuzzleButton.getX(), submitPuzzleButton.getY(), submitPuzzleButton.getWidth(), submitPuzzleButton.getHeight(), 50,50);
     }
 
     //method of designing text box
@@ -380,6 +391,18 @@ public class Interface extends JPanel {
         submitPuzzleButton.setBorderPainted(false);
         submitPuzzleButton.setBounds(340,202,180,50);
         submitPuzzleButton.setFocusPainted(false);
+        submitPuzzleButton.addMouseListener(new java.awt.event.MouseAdapter() { 
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent e) {
+                isHoveringPuzzle = true;
+                repaint();
+            }
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent e) {
+                isHoveringPuzzle = false;
+                repaint();
+            }
+        });
         submitPuzzleButton.addActionListener(e -> {
             String text = puzzleNumberField.getText();
         
