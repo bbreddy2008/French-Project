@@ -62,12 +62,17 @@ public class Interface extends JPanel {
 
     private final JComboBox<String> quiCombo, quoiCombo, ouCombo, pourquoiCombo; // all the dropdowns (combo boxes)
 
+    private Dimension screenSize;
+    private double scaleFactorW;
+    private double scaleFactorH;
+
     //interface class
     public Interface() {
         f = new JFrame(); // choose to add title, i prefer not but whatever
+        initializeScaling();
 
         try { //intializes font 
-        font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/ELEGANT TYPEWRITER Bold.ttf")).deriveFont(Font.BOLD,40f);
+            font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/ELEGANT TYPEWRITER Bold.ttf")).deriveFont(Font.BOLD,40f);
         } catch (FontFormatException | IOException exception) { 
             font = new Font("Arial", Font.PLAIN, 12); //defult font/size
         }
@@ -81,22 +86,22 @@ public class Interface extends JPanel {
     
         //add logo to panel
         logoPanel = new JLabel(new ImageIcon(logo));
-        logoPanel.setBounds(0, 0, 1500, 250);
+        logoPanel.setBounds(scaleWidth(200), scaleWidth(0), scaleWidth(1500), scaleHeight(250));
         add(logoPanel);
         
         //puzzle number 
         puzzleNumberField = new JTextField(); //new text field
         puzzleNumberField.setColumns(2);
-        puzzleNumberField.setBounds(220, 205, 70, 50); //positioning and stuff
-        puzzleNumberField.setFont(font);
+        puzzleNumberField.setBounds(scaleWidth(235), scaleHeight(195), scaleWidth(100), scaleHeight(70)); //positioning and stuff
+        puzzleNumberField.setFont(scaleFontSize(40));
         puzzleNumberField.setOpaque(false);
-        puzzleNumberField.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); //hitbox/border
+        puzzleNumberField.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10)); //hitbox/border
         add(puzzleNumberField);
         
         //creates puzzle label 
         puzzleLabel = new JLabel("Puzzle:");
-        puzzleLabel.setFont(font.deriveFont(Font.BOLD, 50f));
-        puzzleLabel.setBounds(50,180,1000,100);
+        puzzleLabel.setFont(scaleFontSize(50));
+        puzzleLabel.setBounds(scaleWidth(50),scaleHeight(180),scaleWidth(1000),scaleHeight(100));
         //adds to frame
         add(puzzleLabel);
 
@@ -132,14 +137,14 @@ public class Interface extends JPanel {
         inCorrect = new JLabel("Essayez encore");
         inCorrect.setVisible(false);
         inCorrect.setFont(font.deriveFont(Font.BOLD, 50f));
-        inCorrect.setBounds(250,180,1000,100);
+        inCorrect.setBounds(scaleWidth(250),scaleHeight(180),scaleWidth(1000),scaleHeight(100));
         inCorrect.setHorizontalAlignment(SwingConstants.CENTER);
         inCorrect.setVerticalAlignment(SwingConstants.CENTER);
         add(inCorrect, BorderLayout.CENTER);
 
         //window
         setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        setPreferredSize(new Dimension(500, 500));
+        setPreferredSize(new Dimension(scaleWidth(500), scaleHeight(500)));
         f.getContentPane().setLayout(new BorderLayout());
         f.getContentPane().add(this,BorderLayout.CENTER);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -235,14 +240,14 @@ public class Interface extends JPanel {
     private JComboBox<String> styleDropdowns() {
         JComboBox<String> box = new JComboBox<String>();
     
-        box.setFont(font.deriveFont(40f));
+        box.setFont(scaleFontSize(40f));
         box.setRenderer(new DefaultListCellRenderer() { //set a custom renderer to style each item in the dropdown list
             @Override //overriding the redering of the dropdown menu
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 //get the default rendering for this list cell
                 JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-                label.setPreferredSize(new Dimension(600, 60)); //make each dropdown item taller and use a larger font
-                label.setFont(font.deriveFont(40f));
+                label.setPreferredSize(new Dimension(scaleWidth(600), scaleHeight(60))); //make each dropdown item taller and use a larger font
+                label.setFont(scaleFontSize(40f));
                 return label;
             }
         });
@@ -252,12 +257,12 @@ public class Interface extends JPanel {
             @Override
             protected JButton createArrowButton() {
                 JButton button = super.createArrowButton();
-                button.setPreferredSize(new Dimension(40, 70)); 
+                button.setPreferredSize(new Dimension(scaleWidth(40), scaleHeight(70))); 
                 return button;
             }
         });
     
-        box.setPreferredSize(new Dimension(600, 70));
+        box.setPreferredSize(new Dimension(scaleWidth(600), scaleHeight(70)));
         box.setMaximumRowCount(5); //limit dropdown height 
         box.setEnabled(false); //initially disable it until it is enabled by entering a puzzle number
         return box;
@@ -285,10 +290,10 @@ public class Interface extends JPanel {
     //creating labels
     private void createLabels() {
         JLabel[] labels = {quiLabel, quoiLabel, ouLabel, porquoiLabel};
-        int[] yPos = {285, 385, 485, 585};
+        int[] yPos = {scaleHeight(285), scaleHeight(385), scaleHeight(485), scaleHeight(585)};
         for (int i = 0; i < labels.length; i++) {
             labels[i].setFont(font.deriveFont(Font.BOLD, 50f));
-            labels[i].setBounds(220,yPos[i],1000,100);
+            labels[i].setBounds(scaleHeight(120),yPos[i],scaleWidth(1000),scaleHeight(100));
             labels[i].setForeground(Color.GRAY);
             add(labels[i]);
         }
@@ -297,9 +302,9 @@ public class Interface extends JPanel {
     //creates downdowns
     private void createDropdowns() {
         JComboBox[] boxes = {quiCombo, quoiCombo, ouCombo, pourquoiCombo};
-        int[] yPos = {300, 400, 500, 600};
+        int[] yPos = {scaleHeight(300), scaleHeight(400), scaleHeight(500), scaleHeight(600)};
         for (int i = 0; i<4; i++) {
-            boxes[i].setBounds(450, yPos[i], 600, 70);
+            boxes[i].setBounds(scaleWidth(600), yPos[i], scaleWidth(800), scaleHeight(70));
             add(boxes[i]);
         }
     }
@@ -309,8 +314,8 @@ public class Interface extends JPanel {
         submitButton.setOpaque(false);
         submitButton.setContentAreaFilled(false);
         submitButton.setBorderPainted(false);
-        submitButton.setFont(font.deriveFont(Font.BOLD, 50f));
-        submitButton.setBounds(1075,650,350,100);
+        submitButton.setFont(scaleFontSize(50f));
+        submitButton.setBounds(scaleWidth(1400),scaleHeight(700),scaleWidth(350),scaleHeight(100));
         submitButton.setFocusPainted(false);
         submitButton.addActionListener(e -> {
             //resets borders
@@ -345,14 +350,14 @@ public class Interface extends JPanel {
                 if (correctAnswers.length == 3 || (correctAnswers.length == 4 && correctAnswers[3])) {
                     //correct
                     inCorrect.setText("Bravo !");
-                    inCorrect.setBounds(240,180,1000,100);
+                    inCorrect.setBounds(scaleWidth(240),scaleHeight(180),scaleWidth(1000),scaleHeight(100));
                     inCorrect.setVisible(true);
                     playSound("correct.wav");
                 }
             } else {
                 //incorrect
                 inCorrect.setText("Essayez encore !");
-                inCorrect.setBounds(250,180,1000,100);
+                inCorrect.setBounds(scaleWidth(250),scaleHeight(180),scaleWidth(1000),scaleHeight(100));
                 inCorrect.setVisible(true);
             }
         }); 
@@ -374,11 +379,11 @@ public class Interface extends JPanel {
 
     //creates puzzle button
     private void createPuzzleButton() {
-        submitPuzzleButton.setFont(font.deriveFont(Font.BOLD, 27f));
+        submitPuzzleButton.setFont(scaleFontSize(27f));
         submitPuzzleButton.setOpaque(false);
         submitPuzzleButton.setContentAreaFilled(false);
         submitPuzzleButton.setBorderPainted(false);
-        submitPuzzleButton.setBounds(310,202,150,50);
+        submitPuzzleButton.setBounds(scaleWidth(340),scaleHeight(202),scaleWidth(180),scaleHeight(50));
         submitPuzzleButton.setFocusPainted(false);
         submitPuzzleButton.addActionListener(e -> {
             String text = puzzleNumberField.getText();
@@ -422,6 +427,7 @@ public class Interface extends JPanel {
             if (puzzleNumber > 50) {
                 shuffleOptions(pourquoiCombo, currentPuzzle.getOptions("pourquoi"));
                 pourquoiCombo.setEnabled(true);
+                pourquoiCombo.setForeground(Color.BLACK);
                 porquoiLabel.setForeground(Color.BLACK);
             } else {
                 //less than 50, dont
@@ -440,7 +446,7 @@ public class Interface extends JPanel {
         helpButton.setContentAreaFilled(false);
         helpButton.setBorderPainted(false);
         helpButton.setFont(font.deriveFont(Font.BOLD, 100f));
-        helpButton.setBounds(1300,50,100,100);
+        helpButton.setBounds(scaleWidth(1600),scaleHeight(50),scaleWidth(125),scaleHeight(90));
         helpButton.setFocusPainted(false);
 
         //action listener
@@ -489,32 +495,32 @@ public class Interface extends JPanel {
 
                 //make the actual panel itself
                 g2.setColor(new Color(242, 243, 244));
-                g2.fillRoundRect(400, 200, 700, 500, 20, 20); 
+                g2.fillRoundRect(scaleWidth(400), scaleHeight(200), scaleWidth(1100), scaleHeight(600), 20, 20); 
 
                 g2.setColor(new Color(0,0,0,150));
-                g2.setFont(font.deriveFont(Font.BOLD, 50f));
+                g2.setFont(scaleFontSize(50f));
                 //toggle between english and french help menu
-                g2.drawString("ANGLAIS | FRANÇAIS", 525, 650); 
+                g2.drawString("ANGLAIS | FRANÇAIS", scaleWidth(690), scaleHeight(740)); 
 
                 //changes langauge in menu 
                 if (helpInFrench) { 
                     g2.setColor(Color.BLACK);
-                    g2.setFont(font.deriveFont(Font.BOLD, 50f));
-                    g2.drawString("Comment jouer !", 475, 280);
-                    g2.setFont(font.deriveFont(Font.BOLD, 23f));
-                    g2.drawString("• Choisis des réponses dans les menus déroulants pour Qui, Quoi, Où", 470, 360);
-                    g2.drawString("• Si disponible, choisis aussi une réponse pour Pourquoi", 470, 410);
-                    g2.drawString("• Clique sur \"Soumettre\" pour vérifier tes réponses", 470, 460);
-                    g2.drawString("• Le bouton \"?\" ouvre ou ferme ce menu d'aide", 470, 510);                    
+                    g2.setFont(scaleFontSize(50f));
+                    g2.drawString("Comment jouer !", scaleWidth(750), scaleHeight(280));
+                    g2.setFont(scaleFontSize(30f));
+                    g2.drawString("• Choisis des réponses dans les menus déroulants\n pour Qui, Quoi, Où", scaleWidth(410), scaleHeight(360));
+                    g2.drawString("• Si disponible, choisis aussi une réponse pour Pourquoi", scaleWidth(410), scaleHeight(440));
+                    g2.drawString("• Clique sur \"Soumettre\" pour vérifier tes réponses", scaleWidth(410), scaleHeight(520));
+                    g2.drawString("• Le bouton \"?\" ouvre ou ferme ce menu d'aide", scaleWidth(410), scaleHeight(600));                    
                 } else {
                     g2.setColor(Color.BLACK);
-                    g2.setFont(font.deriveFont(Font.BOLD, 50f));
-                    g2.drawString("Help!", 480, 280);
-                    g2.setFont(font.deriveFont(Font.BOLD, 23f));
-                    g2.drawString("• Select answers from the dropdowns for Qui, Quoi, Où", 470, 360);
-                    g2.drawString("• If available, also select Pourquoi", 470, 410);
-                    g2.drawString("• Click \"Soumettre\" to check your answers", 470, 460);
-                    g2.drawString("• Use the \"?\" button to view or close this help menu", 470, 510);
+                    g2.setFont(scaleFontSize(50f));
+                    g2.drawString("Help!", scaleWidth(750), scaleHeight(280));
+                    g2.setFont(scaleFontSize(30f));
+                    g2.drawString("• Select answers from the dropdowns for Qui, Quoi, Où", scaleWidth(410), scaleHeight(360));
+                    g2.drawString("• If available, also select Pourquoi", scaleWidth(410), scaleHeight(440));
+                    g2.drawString("• Click \"Soumettre\" to check your answers", scaleWidth(410), scaleHeight(520));
+                    g2.drawString("• Use the \"?\" button to view or close this help menu", scaleWidth(410), scaleHeight(600));
                 }
             }
         };
@@ -529,7 +535,7 @@ public class Interface extends JPanel {
             public void mouseClicked(MouseEvent e) { 
                 int x = e.getX();
                 int y = e.getY();
-                Rectangle toggleBounds = new Rectangle(525, 620, 500, 40);
+                Rectangle toggleBounds = new Rectangle(scaleWidth(700), scaleHeight(740), scaleWidth(500), scaleHeight(40));
                 if (toggleBounds.contains(x, y)) {
                     helpInFrench = !helpInFrench;
                 } else {
@@ -540,5 +546,23 @@ public class Interface extends JPanel {
                 repaint();
             }
         });
+    }
+
+    private void initializeScaling() {
+        screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        scaleFactorW = screenSize.getWidth() / 1920.0; // Base width
+        scaleFactorH = screenSize.getHeight() / 1080.0; // Base height
+    }
+    
+    private int scaleWidth(int original) {
+        return (int)(original * scaleFactorW);
+    }
+    
+    private int scaleHeight(int original) {
+        return (int)(original * scaleFactorH);
+    }
+    
+    private Font scaleFontSize(float originalSize) {
+        return font.deriveFont(Font.BOLD, (float)(originalSize * Math.min(scaleFactorW, scaleFactorH)));
     }
 }
