@@ -422,6 +422,7 @@ public class Interface extends JPanel {
             if (puzzleNumber > 50) {
                 shuffleOptions(pourquoiCombo, currentPuzzle.getOptions("pourquoi"));
                 pourquoiCombo.setEnabled(true);
+                pourquoiCombo.setForeground(Color.BLACK);
                 porquoiLabel.setForeground(Color.BLACK);
             } else {
                 //less than 50, dont
@@ -502,19 +503,19 @@ public class Interface extends JPanel {
                     g2.setFont(font.deriveFont(Font.BOLD, 50f));
                     g2.drawString("Comment jouer !", 475, 280);
                     g2.setFont(font.deriveFont(Font.BOLD, 23f));
-                    g2.drawString("• Choisis des réponses dans les menus déroulants pour Qui, Quoi, Où", 470, 360);
-                    g2.drawString("• Si disponible, choisis aussi une réponse pour Pourquoi", 470, 410);
-                    g2.drawString("• Clique sur \"Soumettre\" pour vérifier tes réponses", 470, 460);
-                    g2.drawString("• Le bouton \"?\" ouvre ou ferme ce menu d'aide", 470, 510);                    
+                    g2.drawString("• Choisis des réponses dans les menus déroulants pour Qui, Quoi, Où", 410, 360);
+                    g2.drawString("• Si disponible, choisis aussi une réponse pour Pourquoi", 410, 410);
+                    g2.drawString("• Clique sur \"Soumettre\" pour vérifier tes réponses", 410, 460);
+                    g2.drawString("• Le bouton \"?\" ouvre ou ferme ce menu d'aide", 410, 510);                    
                 } else {
                     g2.setColor(Color.BLACK);
                     g2.setFont(font.deriveFont(Font.BOLD, 50f));
                     g2.drawString("Help!", 480, 280);
                     g2.setFont(font.deriveFont(Font.BOLD, 23f));
-                    g2.drawString("• Select answers from the dropdowns for Qui, Quoi, Où", 470, 360);
-                    g2.drawString("• If available, also select Pourquoi", 470, 410);
-                    g2.drawString("• Click \"Soumettre\" to check your answers", 470, 460);
-                    g2.drawString("• Use the \"?\" button to view or close this help menu", 470, 510);
+                    g2.drawString("• Select answers from the dropdowns for Qui, Quoi, Où", 410, 360);
+                    g2.drawString("• If available, also select Pourquoi", 410, 410);
+                    g2.drawString("• Click \"Soumettre\" to check your answers", 410, 460);
+                    g2.drawString("• Use the \"?\" button to view or close this help menu", 410, 510);
                 }
             }
         };
