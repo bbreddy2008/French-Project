@@ -45,6 +45,7 @@ public class Interface extends JPanel {
     //submit puzzle id number
     private final JButton submitPuzzleButton; 
     private int puzzleNumber; //int puzzle id 
+    private boolean isHoveringPuzzle = false;
 
     //storing correct answers as boolean
     private boolean[] correctAnswers; 
@@ -190,6 +191,16 @@ public class Interface extends JPanel {
             g2.setColor(new Color(210, 210, 210));
          }
          g2.fillRoundRect(submitButton.getX(), submitButton.getY(), submitButton.getWidth(), submitButton.getHeight(), 50,50); // submit button
+
+         //Submit Puzzle Button
+         g2.setColor(Color.BLACK);
+         g2.fillRoundRect(submitPuzzleButton.getX()-2, submitPuzzleButton.getY()-2, submitPuzzleButton.getWidth()+4, submitPuzzleButton.getHeight()+4, 50,50);
+         if (!isHoveringPuzzle) { // if the mouse is hovering over it
+            g2.setColor(new Color(232,232,232));
+         } else {
+            g2.setColor(new Color(210, 210, 210));
+         }
+         g2.fillRoundRect(submitPuzzleButton.getX(), submitPuzzleButton.getY(), submitPuzzleButton.getWidth(), submitPuzzleButton.getHeight(), 50,50); // submit button
     }
 
     //method of designing text box
@@ -304,7 +315,7 @@ public class Interface extends JPanel {
         JComboBox[] boxes = {quiCombo, quoiCombo, ouCombo, pourquoiCombo};
         int[] yPos = {scaleHeight(300), scaleHeight(400), scaleHeight(500), scaleHeight(600)};
         for (int i = 0; i<4; i++) {
-            boxes[i].setBounds(scaleWidth(600), yPos[i], scaleWidth(800), scaleHeight(70));
+            boxes[i].setBounds(scaleWidth(550), yPos[i], scaleWidth(1200), scaleHeight(70));
             add(boxes[i]);
         }
     }
@@ -350,14 +361,14 @@ public class Interface extends JPanel {
                 if (correctAnswers.length == 3 || (correctAnswers.length == 4 && correctAnswers[3])) {
                     //correct
                     inCorrect.setText("Bravo !");
-                    inCorrect.setBounds(scaleWidth(240),scaleHeight(180),scaleWidth(1000),scaleHeight(100));
+                    inCorrect.setBounds(scaleWidth(450),scaleHeight(180),scaleWidth(1000),scaleHeight(100));
                     inCorrect.setVisible(true);
                     playSound("correct.wav");
                 }
             } else {
                 //incorrect
                 inCorrect.setText("Essayez encore !");
-                inCorrect.setBounds(scaleWidth(250),scaleHeight(180),scaleWidth(1000),scaleHeight(100));
+                inCorrect.setBounds(scaleWidth(450),scaleHeight(180),scaleWidth(1000),scaleHeight(100));
                 inCorrect.setVisible(true);
             }
         }); 
@@ -383,7 +394,7 @@ public class Interface extends JPanel {
         submitPuzzleButton.setOpaque(false);
         submitPuzzleButton.setContentAreaFilled(false);
         submitPuzzleButton.setBorderPainted(false);
-        submitPuzzleButton.setBounds(scaleWidth(340),scaleHeight(202),scaleWidth(180),scaleHeight(50));
+        submitPuzzleButton.setBounds(scaleWidth(340),scaleHeight(202),scaleWidth(240),scaleHeight(50));
         submitPuzzleButton.setFocusPainted(false);
         submitPuzzleButton.addActionListener(e -> {
             String text = puzzleNumberField.getText();
@@ -436,7 +447,19 @@ public class Interface extends JPanel {
             }
         
             repaint();
-        });        
+        });   
+        submitPuzzleButton.addMouseListener(new java.awt.event.MouseAdapter() { 
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent e) {
+                isHoveringPuzzle = true;
+                repaint();
+            }
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent e) {
+                isHoveringPuzzle = false;
+                repaint();
+            }
+        });     
         add(submitPuzzleButton);
     }
 
@@ -446,7 +469,7 @@ public class Interface extends JPanel {
         helpButton.setContentAreaFilled(false);
         helpButton.setBorderPainted(false);
         helpButton.setFont(font.deriveFont(Font.BOLD, 100f));
-        helpButton.setBounds(scaleWidth(1600),scaleHeight(50),scaleWidth(125),scaleHeight(90));
+        helpButton.setBounds(scaleWidth(1600),scaleHeight(100),scaleWidth(130),scaleHeight(95));
         helpButton.setFocusPainted(false);
 
         //action listener
