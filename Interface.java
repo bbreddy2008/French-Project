@@ -394,7 +394,7 @@ public class Interface extends JPanel {
         submitPuzzleButton.setOpaque(false);
         submitPuzzleButton.setContentAreaFilled(false);
         submitPuzzleButton.setBorderPainted(false);
-        submitPuzzleButton.setBounds(scaleWidth(340),scaleHeight(202),scaleWidth(240),scaleHeight(50));
+        submitPuzzleButton.setBounds(scaleWidth(350),scaleHeight(202),scaleWidth(230),scaleHeight(50));
         submitPuzzleButton.setFocusPainted(false);
         submitPuzzleButton.addActionListener(e -> {
             String text = puzzleNumberField.getText();
@@ -538,7 +538,7 @@ public class Interface extends JPanel {
                 } else {
                     g2.setColor(Color.BLACK);
                     g2.setFont(scaleFontSize(50f));
-                    g2.drawString("Help!", scaleWidth(750), scaleHeight(280));
+                    g2.drawString("Help!", scaleWidth(860), scaleHeight(280));
                     g2.setFont(scaleFontSize(30f));
                     g2.drawString("• Select answers from the dropdowns for Qui, Quoi, Où", scaleWidth(410), scaleHeight(360));
                     g2.drawString("• If available, also select Pourquoi", scaleWidth(410), scaleHeight(440));
@@ -558,7 +558,7 @@ public class Interface extends JPanel {
             public void mouseClicked(MouseEvent e) { 
                 int x = e.getX();
                 int y = e.getY();
-                Rectangle toggleBounds = new Rectangle(scaleWidth(700), scaleHeight(740), scaleWidth(500), scaleHeight(40));
+                Rectangle toggleBounds = new Rectangle(scaleWidth(690), scaleHeight(640), scaleWidth(690), scaleHeight(150));
                 if (toggleBounds.contains(x, y)) {
                     helpInFrench = !helpInFrench;
                 } else {
